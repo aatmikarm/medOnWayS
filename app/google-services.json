@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "157671413790",
+    "project_id": "tandon-medical-8ee54",
+    "storage_bucket": "tandon-medical-8ee54.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:157671413790:android:1fbd2618227889d083b60f",
+        "android_client_info": {
+          "package_name": "com.example.tandonmedical"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "157671413790-a148v3i9ngrfobso9ud9lrh8f58450tg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKlQMQ4GlUEHXTu2qavPu-QMbk6DDprmE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "157671413790-a148v3i9ngrfobso9ud9lrh8f58450tg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:157671413790:android:2f111e2b4dd2591483b60f",
+        "android_client_info": {
+          "package_name": "com.example.tandonmedicalseller"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "157671413790-a148v3i9ngrfobso9ud9lrh8f58450tg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKlQMQ4GlUEHXTu2qavPu-QMbk6DDprmE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "157671413790-a148v3i9ngrfobso9ud9lrh8f58450tg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

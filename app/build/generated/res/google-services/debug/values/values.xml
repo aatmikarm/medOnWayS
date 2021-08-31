@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">157671413790-a148v3i9ngrfobso9ud9lrh8f58450tg.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">157671413790</string>
+    <string name="google_api_key" translatable="false">AIzaSyAKlQMQ4GlUEHXTu2qavPu-QMbk6DDprmE</string>
+    <string name="google_app_id" translatable="false">1:157671413790:android:2f111e2b4dd2591483b60f</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAKlQMQ4GlUEHXTu2qavPu-QMbk6DDprmE</string>
+    <string name="google_storage_bucket" translatable="false">tandon-medical-8ee54.appspot.com</string>
+    <string name="project_id" translatable="false">tandon-medical-8ee54</string>
+</resources>
