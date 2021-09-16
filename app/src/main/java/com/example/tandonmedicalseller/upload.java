@@ -1,25 +1,23 @@
 package com.example.tandonmedicalseller;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -33,36 +31,36 @@ import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-import com.google.protobuf.StringValue;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Locale;
 import java.util.Map;
 
-public class upload extends AppCompatActivity implements categoryInterface{
+public class upload extends AppCompatActivity implements categoryInterface {
 
     RecyclerView categoriesRecyclerView;
     private FirebaseFirestore mDb;
     private FirebaseAuth firebaseAuth;
     private StorageReference storageReference;
+    private String currentUserUid;
 
     private static final int PICK_IMAGE_REQUEST = 77;
 
     String dateandtimepattern = "ssmmHHddMMyyyy";
     String tempProductUrl;
     String categoryName;
+    private String seller;
+    private String sellerId;
 
     ArrayList<categoriesModelList> categoriesModelLists;
 
 
     private CardView uploadBtn;
-    private ImageView backBtn , uploadImage_iv;
-    private EditText uploadName_et , uploadPrice_et , uploadMrp_et , uploadDiscount_et , uploadDescription_et;
+    private ImageView backBtn, uploadImage_iv;
+    private EditText uploadName_et, uploadPrice_et, uploadMrp_et, uploadDiscount_et, uploadDescription_et;
 
 
     private Uri filePath;
@@ -78,8 +76,9 @@ public class upload extends AppCompatActivity implements categoryInterface{
         firebaseAuth = FirebaseAuth.getInstance();
         mDb = FirebaseFirestore.getInstance();
         storageReference = FirebaseStorage.getInstance().getReference();
+        currentUserUid = firebaseAuth.getUid();
 
-        uploadBtn =  findViewById(R.id.upload_final_btn);
+        uploadBtn = findViewById(R.id.upload_final_btn);
         backBtn = findViewById(R.id.upload_back_btn);
         uploadImage_iv = findViewById(R.id.uploadImage_iv);
 
@@ -92,6 +91,8 @@ public class upload extends AppCompatActivity implements categoryInterface{
 
         categoriesModelLists = getAllCategories();
 
+        getSellerDetails();
+
 
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
@@ -99,7 +100,7 @@ public class upload extends AppCompatActivity implements categoryInterface{
             public void run() {
 
                 categoriesRecyclerView = findViewById(R.id.categories_recycler_view);
-                categoriesAdapterUpload categoriesAdapterUpload = new categoriesAdapterUpload(getApplicationContext(), categoriesModelLists , upload.this);
+                categoriesAdapterUpload categoriesAdapterUpload = new categoriesAdapterUpload(getApplicationContext(), categoriesModelLists, upload.this);
                 categoriesRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
                 categoriesRecyclerView.setAdapter(categoriesAdapterUpload);
 
@@ -133,6 +134,31 @@ public class upload extends AppCompatActivity implements categoryInterface{
 
     }
 
+    private void getSellerDetails() {
+
+        mDb.collection("seller")
+                .document(currentUserUid)
+                .get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+
+                        seller = document.get("name").toString();
+                        sellerId = document.get("uid").toString();
+
+
+                    } else {
+                        Toast.makeText(getApplicationContext(), "error", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(getApplicationContext(), "failed ", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
 
     // Select Image method
     private void SelectImage() {
@@ -146,7 +172,6 @@ public class upload extends AppCompatActivity implements categoryInterface{
         //from camera
 
     }
-
 
 
     // Override onActivityResult method
@@ -175,15 +200,12 @@ public class upload extends AppCompatActivity implements categoryInterface{
     private void uploadNewProduct() {
 
 
-
         //getting email and password from edit texts
         String name = uploadName_et.getText().toString();
         String price = uploadPrice_et.getText().toString();
         String mrp = uploadMrp_et.getText().toString();
         String category = categoryName;
         String description = uploadDescription_et.getText().toString().trim();
-
-
 
 
         if (TextUtils.isEmpty(name)) {
@@ -241,7 +263,7 @@ public class upload extends AppCompatActivity implements categoryInterface{
             }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    
+
                     tempRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                         @Override
                         public void onSuccess(Uri uri) {
@@ -252,7 +274,7 @@ public class upload extends AppCompatActivity implements categoryInterface{
 
                             int price = Integer.parseInt(uploadPrice_et.getText().toString());
                             int mrp = Integer.parseInt(uploadMrp_et.getText().toString());
-                            int discount = 100 - (price*100)/mrp;
+                            int discount = 100 - (price * 100) / mrp;
 
                             Map<String, Object> uploadNewProduct = new HashMap<>();
                             uploadNewProduct.put("name", uploadName_et.getText().toString());
@@ -260,6 +282,8 @@ public class upload extends AppCompatActivity implements categoryInterface{
                             uploadNewProduct.put("mrp", uploadMrp_et.getText().toString());
                             uploadNewProduct.put("discount", String.valueOf(discount));
                             uploadNewProduct.put("category", categoryName);
+                            uploadNewProduct.put("seller", seller);
+                            uploadNewProduct.put("sellerId", sellerId);
                             uploadNewProduct.put("description", uploadDescription_et.getText().toString());
                             uploadNewProduct.put("productId", productId);
                             uploadNewProduct.put("imageUrl", uri.toString());
@@ -272,14 +296,12 @@ public class upload extends AppCompatActivity implements categoryInterface{
 
                         }
                     });
-                    
 
 
-                    
                 }
             });
         }
-        if(filePath==null){
+        if (filePath == null) {
             Toast.makeText(this, "Please Upload Image", Toast.LENGTH_LONG).show();
         }
     }

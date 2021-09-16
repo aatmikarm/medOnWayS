@@ -119,6 +119,7 @@ public class MainActivity extends AppCompatActivity {
                         productModelList productModelList = new productModelList();
 
                         productModelList.setName((String) document.get("name"));
+                        productModelList.setSeller((String) document.get("seller"));
                         productModelList.setImageUrl((String) document.get("imageUrl"));
                         productModelList.setPrice((String) document.get("price"));
                         productModelList.setDiscount((String) document.get("discount"));

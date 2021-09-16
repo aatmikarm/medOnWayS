@@ -107,16 +107,16 @@ public class signUp extends AppCompatActivity {
                            String uid = firebaseAuth.getUid();
                            Date CurrentDateAndTime = new Date();
 
-                           Map<String, Object> user = new HashMap<>();
-                           user.put("uid", uid);
-                           user.put("name", signupName);
-                           user.put("phone", signupPhone);
-                           user.put("email", signupEmail);
-                           user.put("password", signupPassword);
-                           user.put("bio", "");
-                           user.put("CurrentDateAndTime", CurrentDateAndTime);
+                           Map<String, Object> seller = new HashMap<>();
+                           seller.put("uid", uid);
+                           seller.put("name", signupName);
+                           seller.put("phone", signupPhone);
+                           seller.put("email", signupEmail);
+                           seller.put("password", signupPassword);
+                           seller.put("bio", "");
+                           seller.put("CurrentDateAndTime", CurrentDateAndTime);
 
-                           mDb.collection("users").document(uid).set(user);
+                           mDb.collection("seller").document(uid).set(seller);
 
                            Toast.makeText(signUp.this, "Successfully registered", Toast.LENGTH_LONG).show();
                            startActivity(new Intent(getApplicationContext(), MainActivity.class));

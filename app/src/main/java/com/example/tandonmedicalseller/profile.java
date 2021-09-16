@@ -76,7 +76,7 @@ public class profile extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         currentUserUid = firebaseAuth.getUid();
 
-        mDb.collection("users")
+        mDb.collection("seller")
                 .document(currentUserUid)
                 .get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
@@ -131,7 +131,7 @@ public class profile extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                mDb.collection("users").document(currentUserUid).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                mDb.collection("seller").document(currentUserUid).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
 
@@ -140,7 +140,7 @@ public class profile extends AppCompatActivity {
                         updateUserInfo.put("phone", profilePhone_et.getText().toString());
                         updateUserInfo.put("bio", profileBio_et.getText().toString());
 
-                        mDb.collection("users").document(currentUserUid).update(updateUserInfo);
+                        mDb.collection("seller").document(currentUserUid).update(updateUserInfo);
                         profileName_tv.setText(profileName_et.getText().toString());
                         Toast.makeText(getApplicationContext(), "Profile Updated", Toast.LENGTH_SHORT).show();
 

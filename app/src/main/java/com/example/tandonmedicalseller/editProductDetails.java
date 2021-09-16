@@ -55,6 +55,7 @@ public class editProductDetails extends AppCompatActivity implements categoryInt
     // intent getters
     String category;
     String productId;
+    String seller;
     String description;
     String discount;
     String imageUrl;
@@ -98,6 +99,7 @@ public class editProductDetails extends AppCompatActivity implements categoryInt
         if (getIntent().getExtras() != null) {
             this.category = (String) getIntent().getExtras().get("category");
             this.productId = (String) getIntent().getExtras().get("productId");
+            this.seller = (String) getIntent().getExtras().get("seller");
             this.description = (String) getIntent().getExtras().get("description");
             this.discount = (String) getIntent().getExtras().get("discount");
             this.imageUrl = (String) getIntent().getExtras().get("imageUrl");
@@ -118,7 +120,8 @@ public class editProductDetails extends AppCompatActivity implements categoryInt
             @Override
             public void run() {
                 categoriesRecyclerView = findViewById(R.id.categories_recycler_view);
-                categoriesAdapterUpload categoriesAdapterUpload = new categoriesAdapterUpload(getApplicationContext(), categoriesModelLists, editProductDetails.this);
+                categoriesAdapterUpload categoriesAdapterUpload = new categoriesAdapterUpload
+                        (getApplicationContext(), categoriesModelLists, editProductDetails.this);
                 categoriesRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
                 categoriesRecyclerView.setAdapter(categoriesAdapterUpload);
 
@@ -255,6 +258,7 @@ public class editProductDetails extends AppCompatActivity implements categoryInt
                             editNewProduct.put("description", editDescription_et.getText().toString());
                             editNewProduct.put("productId", productId);
                             editNewProduct.put("imageUrl", uri.toString());
+                            editNewProduct.put("seller", seller);
 
                             mDb.collection("products").document(productId).update(editNewProduct);
                             progressDialog.dismiss();

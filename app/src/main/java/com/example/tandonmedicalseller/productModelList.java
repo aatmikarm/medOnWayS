@@ -6,6 +6,25 @@ public class productModelList {
     String name;
     String price;
     String mrp;
+    String seller;
+    String sellerId;
+
+    public String getSellerId() {
+        return sellerId;
+    }
+
+    public void setSellerId(String sellerId) {
+        this.sellerId = sellerId;
+    }
+
+    public String getSeller() {
+        return seller;
+    }
+
+    public void setSeller(String seller) {
+        this.seller = seller;
+    }
+
     String category;
     String productId;
     String description;
