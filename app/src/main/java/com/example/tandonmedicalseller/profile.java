@@ -1,9 +1,5 @@
 package com.example.tandonmedicalseller;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -11,11 +7,14 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -172,14 +171,19 @@ public class profile extends AppCompatActivity {
     }
 
     private void setCurrentUserImage() {
-        final String uid = firebaseAuth.getUid();
-        StorageReference ref = mStorageRef.child("images/" + uid).child("profilepic.jpg");
+
+        StorageReference ref = mStorageRef.child("images/" + currentUserUid).child("profilepic.jpg");
         ref.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
                 ImageView imageView;
                 imageView = findViewById(R.id.profile_iv);
                 Glide.with(getApplicationContext()).load(uri).into(imageView);
+
+                Map<String, Object> sellerImageUrl = new HashMap<>();
+                sellerImageUrl.put("imageUrl", uri.toString());
+                mDb.collection("seller").document(currentUserUid).update(sellerImageUrl);
+
             }
         });
     }

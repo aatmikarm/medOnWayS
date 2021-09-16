@@ -1,6 +1,7 @@
 package com.example.tandonmedicalseller;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -13,7 +14,9 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -23,6 +26,8 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -55,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         mDb = FirebaseFirestore.getInstance();
         mStorageRef = FirebaseStorage.getInstance().getReference();
 
-
+        setCurrentUserImage();
 
         orders_history.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,11 +85,26 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private void setCurrentUserImage() {
+        final String uid = firebaseAuth.getUid();
+        StorageReference ref = mStorageRef.child("images/" + uid).child("profilepic.jpg");
+        ref.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                ImageView imageView;
+                imageView = findViewById(R.id.seller_profile_image_view);
+                Glide.with(getApplicationContext()).load(uri).into(imageView);
+
+            }
+        });
+    }
+
     @Override
     protected void onResume() {
         super.onResume();
 
         final ArrayList<productModelList> productModelLists = getAllProducts();
+        setCurrentUserImage();
 
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
