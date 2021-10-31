@@ -228,6 +228,10 @@ attr chipSurfaceColor
 attr circleCrop
 attr circleRadius
 attr circularProgressIndicatorStyle
+attr civ_border_color
+attr civ_border_overlay
+attr civ_border_width
+attr civ_circle_background_color
 attr clickAction
 attr clockFaceBackgroundColor
 attr clockHandColor
@@ -1768,6 +1772,7 @@ drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable ic_backicon
 drawable ic_baseline_notifications_none_24
+drawable ic_call
 drawable ic_clock_black_24dp
 drawable ic_grid
 drawable ic_keyboard_black_24dp
@@ -1779,6 +1784,7 @@ drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_plus
+drawable ic_star
 drawable ic_userdp
 drawable ic_verified
 drawable material_cursor_drawable
@@ -1950,6 +1956,8 @@ id collapseActionView
 id con1
 id con2
 id con3
+id con4
+id con5
 id confirm_button
 id container
 id content
@@ -1960,6 +1968,7 @@ id cos
 id counterclockwise
 id custom
 id customPanel
+id custom_marker_view
 id cut
 id cv
 id dark
@@ -2066,6 +2075,7 @@ id line3
 id linear
 id listMode
 id list_item
+id ll1
 id ll2
 id logOut_iv
 id loginBtnCardView
@@ -2141,6 +2151,18 @@ id notification_main_column_container
 id off
 id on
 id options_container
+id order_status_cv
+id order_status_tv
+id orders_back_iv
+id orders_discount_card_view
+id orders_discount_text_view
+id orders_history_iv
+id orders_list_recycler_view
+id orders_product_container
+id orders_product_discounted_price
+id orders_product_image
+id orders_product_mrp
+id orders_product_name
 id outline
 id outward
 id packed
@@ -2157,6 +2179,14 @@ id percent
 id pin
 id position
 id postLayout
+id productStatusMap
+id productStatus_back_iv
+id productStatus_deliveryPersonCall
+id productStatus_deliveryPersonName_tv
+id productStatus_deliveryPersonPic_iv
+id productStatus_deliveryPerson_iv
+id productStaus_Text
+id productStaus_arrivalTime
 id product_cart
 id product_container
 id product_list_recycler_view
@@ -2302,6 +2332,7 @@ id textTop
 id textView
 id textView2
 id textView3
+id textView4
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
@@ -2343,6 +2374,7 @@ id upload_btn
 id upload_final_btn
 id upload_mrp_et
 id useLogo
+id user_dp
 id view_offset_helper
 id view_tree_lifecycle_owner
 id view_tree_saved_state_registry_owner
@@ -2426,6 +2458,7 @@ layout abc_tooltip
 layout activity_edit_product_details
 layout activity_main
 layout activity_orders
+layout activity_product_status
 layout activity_profile
 layout activity_reset_password
 layout activity_sign_in
@@ -2435,6 +2468,7 @@ layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
 layout categories_recycler_view
 layout custom_dialog
+layout custom_user_marker_layout
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
 layout design_layout_snackbar
@@ -2499,6 +2533,7 @@ layout notification_template_custom_big
 layout notification_template_icon_group
 layout notification_template_part_chronometer
 layout notification_template_part_time
+layout orders_rv_product
 layout recycler_view_product
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
@@ -3402,6 +3437,7 @@ styleable ButtonBarLayout allowStacking
 styleable CardView android_minWidth android_minHeight cardBackgroundColor cardCornerRadius cardElevation cardMaxElevation cardPreventCornerOverlap cardUseCompatPadding contentPadding contentPaddingBottom contentPaddingLeft contentPaddingRight contentPaddingTop
 styleable Chip android_textAppearance android_textSize android_textColor android_ellipsize android_maxWidth android_text android_checkable checkedIcon checkedIconEnabled checkedIconTint checkedIconVisible chipBackgroundColor chipCornerRadius chipEndPadding chipIcon chipIconEnabled chipIconSize chipIconTint chipIconVisible chipMinHeight chipMinTouchTargetSize chipStartPadding chipStrokeColor chipStrokeWidth chipSurfaceColor closeIcon closeIconEnabled closeIconEndPadding closeIconSize closeIconStartPadding closeIconTint closeIconVisible ensureMinTouchTargetSize hideMotionSpec iconEndPadding iconStartPadding rippleColor shapeAppearance shapeAppearanceOverlay showMotionSpec textEndPadding textStartPadding
 styleable ChipGroup checkedChip chipSpacing chipSpacingHorizontal chipSpacingVertical selectionRequired singleLine singleSelection
+styleable CircleImageView civ_border_color civ_border_overlay civ_border_width civ_circle_background_color
 styleable CircularProgressIndicator indicatorDirectionCircular indicatorInset indicatorSize
 styleable ClockFaceView clockFaceBackgroundColor clockNumberTextColor
 styleable ClockHandView clockHandColor materialCircleRadius selectorSize

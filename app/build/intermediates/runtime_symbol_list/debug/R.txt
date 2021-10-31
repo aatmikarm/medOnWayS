@@ -227,6 +227,10 @@ int attr chipSurfaceColor 0x7f0300a7
 int attr circleCrop 0x7f0300a8
 int attr circleRadius 0x7f0300a9
 int attr circularProgressIndicatorStyle 0x7f0300aa
+int attr civ_border_color 0x7f0303a8
+int attr civ_border_overlay 0x7f0303a9
+int attr civ_border_width 0x7f0303aa
+int attr civ_circle_background_color 0x7f0303ab
 int attr clickAction 0x7f0300ab
 int attr clockFaceBackgroundColor 0x7f0300ac
 int attr clockHandColor 0x7f0300ad
@@ -1767,6 +1771,7 @@ int drawable googleg_disabled_color_18 0x7f07007b
 int drawable googleg_standard_color_18 0x7f07007c
 int drawable ic_backicon 0x7f07007d
 int drawable ic_baseline_notifications_none_24 0x7f07007e
+int drawable ic_call 0x7f0700b6
 int drawable ic_clock_black_24dp 0x7f07007f
 int drawable ic_grid 0x7f070080
 int drawable ic_keyboard_black_24dp 0x7f070081
@@ -1778,6 +1783,7 @@ int drawable ic_mtrl_chip_checked_black 0x7f070086
 int drawable ic_mtrl_chip_checked_circle 0x7f070087
 int drawable ic_mtrl_chip_close_circle 0x7f070088
 int drawable ic_plus 0x7f070089
+int drawable ic_star 0x7f0700b7
 int drawable ic_userdp 0x7f07008a
 int drawable ic_verified 0x7f07008b
 int drawable material_cursor_drawable 0x7f07008c
@@ -1949,6 +1955,8 @@ int id collapseActionView 0x7f08007b
 int id con1 0x7f08007c
 int id con2 0x7f08007d
 int id con3 0x7f08007e
+int id con4 0x7f080214
+int id con5 0x7f080215
 int id confirm_button 0x7f08007f
 int id container 0x7f080080
 int id content 0x7f080081
@@ -1959,6 +1967,7 @@ int id cos 0x7f080085
 int id counterclockwise 0x7f080086
 int id custom 0x7f080087
 int id customPanel 0x7f080088
+int id custom_marker_view 0x7f080216
 int id cut 0x7f080089
 int id cv 0x7f08008a
 int id dark 0x7f08008b
@@ -2065,6 +2074,7 @@ int id line3 0x7f0800ef
 int id linear 0x7f0800f0
 int id listMode 0x7f0800f1
 int id list_item 0x7f0800f2
+int id ll1 0x7f080217
 int id ll2 0x7f0800f3
 int id logOut_iv 0x7f0800f4
 int id loginBtnCardView 0x7f0800f5
@@ -2140,6 +2150,18 @@ int id notification_main_column_container 0x7f08013a
 int id off 0x7f08013b
 int id on 0x7f08013c
 int id options_container 0x7f08013d
+int id order_status_cv 0x7f080218
+int id order_status_tv 0x7f080219
+int id orders_back_iv 0x7f08021a
+int id orders_discount_card_view 0x7f08021b
+int id orders_discount_text_view 0x7f08021c
+int id orders_history_iv 0x7f08021d
+int id orders_list_recycler_view 0x7f08021e
+int id orders_product_container 0x7f08021f
+int id orders_product_discounted_price 0x7f080220
+int id orders_product_image 0x7f080221
+int id orders_product_mrp 0x7f080222
+int id orders_product_name 0x7f080223
 int id outline 0x7f08013e
 int id outward 0x7f08013f
 int id packed 0x7f080140
@@ -2156,6 +2178,14 @@ int id percent 0x7f08014a
 int id pin 0x7f08014b
 int id position 0x7f08014c
 int id postLayout 0x7f08014d
+int id productStatusMap 0x7f080224
+int id productStatus_back_iv 0x7f080225
+int id productStatus_deliveryPersonCall 0x7f080226
+int id productStatus_deliveryPersonName_tv 0x7f080227
+int id productStatus_deliveryPersonPic_iv 0x7f080228
+int id productStatus_deliveryPerson_iv 0x7f080229
+int id productStaus_Text 0x7f08022a
+int id productStaus_arrivalTime 0x7f08022b
 int id product_cart 0x7f08014e
 int id product_container 0x7f08014f
 int id product_list_recycler_view 0x7f080150
@@ -2301,6 +2331,7 @@ int id textTop 0x7f0801db
 int id textView 0x7f0801dc
 int id textView2 0x7f0801dd
 int id textView3 0x7f0801de
+int id textView4 0x7f08022c
 int id text_input_end_icon 0x7f0801df
 int id text_input_error_icon 0x7f0801e0
 int id text_input_start_icon 0x7f0801e1
@@ -2342,6 +2373,7 @@ int id upload_btn 0x7f080204
 int id upload_final_btn 0x7f080205
 int id upload_mrp_et 0x7f080206
 int id useLogo 0x7f080207
+int id user_dp 0x7f08022d
 int id view_offset_helper 0x7f080208
 int id view_tree_lifecycle_owner 0x7f080209
 int id view_tree_saved_state_registry_owner 0x7f08020a
@@ -2425,6 +2457,7 @@ int layout abc_tooltip 0x7f0b001b
 int layout activity_edit_product_details 0x7f0b001c
 int layout activity_main 0x7f0b001d
 int layout activity_orders 0x7f0b001e
+int layout activity_product_status 0x7f0b007c
 int layout activity_profile 0x7f0b001f
 int layout activity_reset_password 0x7f0b0020
 int layout activity_sign_in 0x7f0b0021
@@ -2434,6 +2467,7 @@ int layout browser_actions_context_menu_page 0x7f0b0024
 int layout browser_actions_context_menu_row 0x7f0b0025
 int layout categories_recycler_view 0x7f0b0026
 int layout custom_dialog 0x7f0b0027
+int layout custom_user_marker_layout 0x7f0b007d
 int layout design_bottom_navigation_item 0x7f0b0028
 int layout design_bottom_sheet_dialog 0x7f0b0029
 int layout design_layout_snackbar 0x7f0b002a
@@ -2498,6 +2532,7 @@ int layout notification_template_custom_big 0x7f0b0064
 int layout notification_template_icon_group 0x7f0b0065
 int layout notification_template_part_chronometer 0x7f0b0066
 int layout notification_template_part_time 0x7f0b0067
+int layout orders_rv_product 0x7f0b007e
 int layout recycler_view_product 0x7f0b0068
 int layout select_dialog_item_material 0x7f0b0069
 int layout select_dialog_multichoice_material 0x7f0b006a
@@ -3746,6 +3781,11 @@ int styleable ChipGroup_chipSpacingVertical 3
 int styleable ChipGroup_selectionRequired 4
 int styleable ChipGroup_singleLine 5
 int styleable ChipGroup_singleSelection 6
+int[] styleable CircleImageView { 0x7f0303a8, 0x7f0303a9, 0x7f0303aa, 0x7f0303ab }
+int styleable CircleImageView_civ_border_color 0
+int styleable CircleImageView_civ_border_overlay 1
+int styleable CircleImageView_civ_border_width 2
+int styleable CircleImageView_civ_circle_background_color 3
 int[] styleable CircularProgressIndicator { 0x7f0301a9, 0x7f0301ab, 0x7f0301ac }
 int styleable CircularProgressIndicator_indicatorDirectionCircular 0
 int styleable CircularProgressIndicator_indicatorInset 1

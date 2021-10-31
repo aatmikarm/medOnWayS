@@ -31,7 +31,7 @@
                 android:elevation="50dp" />
 
             <ImageView
-                android:id="@+id/History_orders_image_view"
+                android:id="@+id/orders_history_iv"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"

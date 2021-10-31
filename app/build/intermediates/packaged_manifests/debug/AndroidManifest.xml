@@ -49,6 +49,7 @@
         <activity android:name="com.example.tandonmedicalseller.signUp" />
         <activity android:name="com.example.tandonmedicalseller.editProductDetails" />
         <activity android:name="com.example.tandonmedicalseller.MainActivity" />
+        <activity android:name="com.example.tandonmedicalseller.productStatus" />
         <activity android:name="com.example.tandonmedicalseller.ResetPasswordActivity" />
         <activity android:name="com.example.tandonmedicalseller.signIn" >
             <intent-filter>

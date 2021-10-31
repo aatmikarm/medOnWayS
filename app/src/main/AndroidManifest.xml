@@ -27,6 +27,7 @@
         <activity android:name=".signUp" />
         <activity android:name=".editProductDetails" />
         <activity android:name=".MainActivity" />
+        <activity android:name=".productStatus" />
         <activity android:name=".ResetPasswordActivity" />
 
         <activity android:name=".signIn">

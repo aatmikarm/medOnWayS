@@ -31,16 +31,19 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.GeoPoint;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ImageView orders_history;
+    private ImageView orders_history_iv;
     private ImageView profile;
     RecyclerView productRecyclerView;
     private FirebaseFirestore mDb;
@@ -57,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-        orders_history = findViewById(R.id.History_orders_image_view);
+        orders_history_iv = findViewById(R.id.orders_history_iv);
         profile = findViewById(R.id.seller_profile_image_view);
         uploadBtn = findViewById(R.id.upload_btn);
         firebaseAuth = FirebaseAuth.getInstance();
@@ -68,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         getCurrentLocation();
 
         setCurrentUserImage();
-        orders_history.setOnClickListener(new View.OnClickListener() {
+        orders_history_iv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), orders.class));
@@ -88,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    //best user current location code ever
     private void getCurrentLocation() {
 
         LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
@@ -105,6 +109,10 @@ public class MainActivity extends AppCompatActivity {
                     Location location = task.getResult();
                     if (location != null) {
                         Toast.makeText(MainActivity.this, "location = "+location.getLatitude(), Toast.LENGTH_SHORT).show();
+                        GeoPoint geoPoint = new GeoPoint(location.getLatitude(), location.getLongitude());
+                        Map<String, Object> updateUserLocation = new HashMap<>();
+                        updateUserLocation.put("geo_point", geoPoint);
+                        mDb.collection("seller").document(firebaseAuth.getUid()).update(updateUserLocation);
                     }
                 }
             });

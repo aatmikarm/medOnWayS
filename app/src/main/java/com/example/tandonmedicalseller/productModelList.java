@@ -1,21 +1,27 @@
 package com.example.tandonmedicalseller;
 
 public class productModelList {
-
     String imageUrl;
     String name;
     String price;
     String mrp;
+    String category;
+    String productId;
+    String description;
+    String quantity;
     String seller;
     String sellerId;
+    String userId;
 
-    public String getSellerId() {
-        return sellerId;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setSellerId(String sellerId) {
-        this.sellerId = sellerId;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
+
+    String status;
 
     public String getSeller() {
         return seller;
@@ -25,9 +31,29 @@ public class productModelList {
         this.seller = seller;
     }
 
-    String category;
-    String productId;
-    String description;
+    public String getSellerId() {
+        return sellerId;
+    }
+
+    public void setSellerId(String sellerId) {
+        this.sellerId = sellerId;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(String quantity) {
+        this.quantity = quantity;
+    }
 
     public String getCategory() {
         return category;

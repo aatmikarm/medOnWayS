@@ -4,7 +4,7 @@
             "outputFile": "C:\\Users\\Aatmik\\AndroidStudioProjects\\tandonmedicalseller\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-watch-v21\\values-watch-v21.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Aatmik\\.gradle\\caches\\transforms-2\\files-2.1\\999d0ab2f1d4f203c91e2a21da3072aa\\appcompat-1.3.0\\res\\values-watch-v21\\values-watch-v21.xml",
+                    "source": "C:\\Users\\Aatmik\\.gradle\\caches\\transforms-3\\a534dbccf371f9cc7ddad303eae3ca90\\transformed\\appcompat-1.3.0\\res\\values-watch-v21\\values-watch-v21.xml",
                     "from": {
                         "startLines": "2,6,10",
                         "startColumns": "4,4,4",
