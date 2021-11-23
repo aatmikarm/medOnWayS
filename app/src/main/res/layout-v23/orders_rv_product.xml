@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
@@ -13,7 +14,7 @@
         android:id="@+id/orders_product_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/rectangular_border"
+        android:background="@drawable/rectangular_color_border"
         android:padding="10dp">
 
         <androidx.cardview.widget.CardView
@@ -47,6 +48,46 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/order_status_cv"
+            app:layout_constraintEnd_toEndOf="@+id/orders_product_discounted_price"
+            app:layout_constraintStart_toStartOf="@+id/orders_product_discounted_price"
+            app:layout_constraintTop_toBottomOf="@+id/orders_product_discounted_price">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/orderProduct_quantity_cv"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_margin="10dp"
+                android:backgroundTint="@color/black"
+                app:cardCornerRadius="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/order_quantity_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
             android:id="@+id/orders_product_name"
@@ -101,12 +142,10 @@
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_margin="5dp"
-            android:backgroundTint="@color/teal_700"
             app:cardCornerRadius="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/orders_product_image"
-            app:layout_constraintTop_toBottomOf="@+id/orders_product_discounted_price">
+            app:layout_constraintStart_toEndOf="@+id/orders_product_image">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -120,7 +159,7 @@
                     android:foregroundGravity="center"
                     android:gravity="center"
                     android:text="STATUS"
-                    android:textColor="@color/white"
+                    android:textColor="#FFFFFF"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"

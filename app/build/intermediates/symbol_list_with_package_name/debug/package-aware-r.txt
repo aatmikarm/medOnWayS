@@ -1821,7 +1821,8 @@ drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable onesde_rounded_corners
-drawable rectangular_border
+drawable rectangular_color_border
+drawable rectangular_no_color_border
 drawable roundedittext
 drawable tandonmedicalicon
 drawable test
@@ -1977,6 +1978,7 @@ id decelerate
 id decelerateAndComplete
 id decor_content_parent
 id default_activity_button
+id delivered_cv
 id deltaRelative
 id dependency_ordering
 id design_bottom_sheet
@@ -2018,6 +2020,7 @@ id end
 id endToStart
 id enterAlways
 id enterAlwaysCollapsed
+id enterOTP_et
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
@@ -2058,6 +2061,7 @@ id ignoreRequest
 id image
 id imageView
 id imageView2
+id incon1
 id info
 id invisible
 id inward
@@ -2151,6 +2155,9 @@ id notification_main_column_container
 id off
 id on
 id options_container
+id orderProduct_quantity_cv
+id order_count_tv
+id order_quantity_tv
 id order_status_cv
 id order_status_tv
 id orders_back_iv
@@ -2349,6 +2356,7 @@ id title_template
 id toggle
 id top
 id topPanel
+id total_earning_tv
 id touch_outside
 id transitionToEnd
 id transitionToStart

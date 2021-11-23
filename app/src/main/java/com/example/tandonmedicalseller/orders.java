@@ -97,9 +97,11 @@ public class orders extends AppCompatActivity  implements ordersProductInterface
                         productModelList.setSeller((String) document.get("seller"));
                         productModelList.setCategory((String) document.get("category"));
                         productModelList.setProductId((String) document.get("productId"));
+                        productModelList.setProductOrderId((String) document.get("productOrderId"));
                         productModelList.setDescription((String) document.get("description"));
                         productModelList.setStatus((String) document.get("status"));
                         productModelList.setUserId((String) document.get("userId"));
+                        productModelList.setProductQuantity((String) document.get("productQuantity"));
 
                         productModelLists.add(productModelList);
 
@@ -108,7 +110,39 @@ public class orders extends AppCompatActivity  implements ordersProductInterface
                 }
             }
         });
+        mDb.collection("seller").document(currentUserUid).collection("orders")
+                .whereEqualTo("status", "delivered")
+                .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    //it performs a for loop to get each seperate user details and location
+                    for (QueryDocumentSnapshot document : task.getResult()) {
 
+                        productModelList productModelList = new productModelList();
+
+                        productModelList.setName((String) document.get("name"));
+                        productModelList.setImageUrl((String) document.get("imageUrl"));
+                        productModelList.setPrice((String) document.get("price"));
+                        productModelList.setDiscount((String) document.get("discount"));
+                        productModelList.setMrp((String) document.get("mrp"));
+                        productModelList.setSellerId((String) document.get("sellerId"));
+                        productModelList.setSeller((String) document.get("seller"));
+                        productModelList.setCategory((String) document.get("category"));
+                        productModelList.setProductId((String) document.get("productId"));
+                        productModelList.setProductOrderId((String) document.get("productOrderId"));
+                        productModelList.setDescription((String) document.get("description"));
+                        productModelList.setStatus((String) document.get("status"));
+                        productModelList.setUserId((String) document.get("userId"));
+                        productModelList.setProductQuantity((String) document.get("productQuantity"));
+
+                        productModelLists.add(productModelList);
+
+                    }
+
+                }
+            }
+        });
         return productModelLists;
 
     }
@@ -118,6 +152,8 @@ public class orders extends AppCompatActivity  implements ordersProductInterface
         Intent intent = new Intent(getApplicationContext(), productStatus.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.putExtra("userId", productModelLists.get(position).getUserId());
+        intent.putExtra("productId", productModelLists.get(position).getProductId());
+        intent.putExtra("productOrderId", productModelLists.get(position).getProductOrderId());
         startActivity(intent);
     }
 }

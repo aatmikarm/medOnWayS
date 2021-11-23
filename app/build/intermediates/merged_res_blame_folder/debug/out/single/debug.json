@@ -1,11 +1,11 @@
 [
     {
-        "merged": "C:\\Users\\Aatmik\\AndroidStudioProjects\\tandonmedicalseller\\app\\build\\intermediates\\merged_res\\debug\\drawable-xhdpi_ic_backicon.png.flat",
-        "source": "C:\\Users\\Aatmik\\AndroidStudioProjects\\tandonmedicalseller\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_backicon.png"
-    },
-    {
         "merged": "C:\\Users\\Aatmik\\AndroidStudioProjects\\tandonmedicalseller\\app\\build\\intermediates\\merged_res\\debug\\drawable_roundedittext.xml.flat",
         "source": "C:\\Users\\Aatmik\\AndroidStudioProjects\\tandonmedicalseller\\app\\src\\main\\res\\drawable\\roundedittext.xml"
+    },
+    {
+        "merged": "C:\\Users\\Aatmik\\AndroidStudioProjects\\tandonmedicalseller\\app\\build\\intermediates\\merged_res\\debug\\drawable-xhdpi_ic_backicon.png.flat",
+        "source": "C:\\Users\\Aatmik\\AndroidStudioProjects\\tandonmedicalseller\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_backicon.png"
     },
     {
         "merged": "C:\\Users\\Aatmik\\AndroidStudioProjects\\tandonmedicalseller\\app\\build\\intermediates\\merged_res\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
@@ -100,6 +100,10 @@
         "source": "C:\\Users\\Aatmik\\AndroidStudioProjects\\tandonmedicalseller\\app\\src\\main\\res\\layout\\activity_orders.xml"
     },
     {
+        "merged": "C:\\Users\\Aatmik\\AndroidStudioProjects\\tandonmedicalseller\\app\\build\\intermediates\\merged_res\\debug\\drawable_rectangular_color_border.xml.flat",
+        "source": "C:\\Users\\Aatmik\\AndroidStudioProjects\\tandonmedicalseller\\app\\src\\main\\res\\drawable\\rectangular_color_border.xml"
+    },
+    {
         "merged": "C:\\Users\\Aatmik\\AndroidStudioProjects\\tandonmedicalseller\\app\\build\\intermediates\\merged_res\\debug\\drawable-mdpi_upload.png.flat",
         "source": "C:\\Users\\Aatmik\\AndroidStudioProjects\\tandonmedicalseller\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\upload.png"
     },
@@ -142,10 +146,6 @@
     {
         "merged": "C:\\Users\\Aatmik\\AndroidStudioProjects\\tandonmedicalseller\\app\\build\\intermediates\\merged_res\\debug\\drawable-ldpi_cart.png.flat",
         "source": "C:\\Users\\Aatmik\\AndroidStudioProjects\\tandonmedicalseller\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\cart.png"
-    },
-    {
-        "merged": "C:\\Users\\Aatmik\\AndroidStudioProjects\\tandonmedicalseller\\app\\build\\intermediates\\merged_res\\debug\\drawable_rectangular_border.xml.flat",
-        "source": "C:\\Users\\Aatmik\\AndroidStudioProjects\\tandonmedicalseller\\app\\src\\main\\res\\drawable\\rectangular_border.xml"
     },
     {
         "merged": "C:\\Users\\Aatmik\\AndroidStudioProjects\\tandonmedicalseller\\app\\build\\intermediates\\merged_res\\debug\\layout-v23_activity_upload.xml.flat",
@@ -334,6 +334,10 @@
     {
         "merged": "C:\\Users\\Aatmik\\AndroidStudioProjects\\tandonmedicalseller\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_profile.xml.flat",
         "source": "C:\\Users\\Aatmik\\AndroidStudioProjects\\tandonmedicalseller\\app\\src\\main\\res\\layout\\activity_profile.xml"
+    },
+    {
+        "merged": "C:\\Users\\Aatmik\\AndroidStudioProjects\\tandonmedicalseller\\app\\build\\intermediates\\merged_res\\debug\\drawable_rectangular_no_color_border.xml.flat",
+        "source": "C:\\Users\\Aatmik\\AndroidStudioProjects\\tandonmedicalseller\\app\\src\\main\\res\\drawable\\rectangular_no_color_border.xml"
     },
     {
         "merged": "C:\\Users\\Aatmik\\AndroidStudioProjects\\tandonmedicalseller\\app\\build\\intermediates\\merged_res\\debug\\drawable-hdpi_ic_backicon.png.flat",

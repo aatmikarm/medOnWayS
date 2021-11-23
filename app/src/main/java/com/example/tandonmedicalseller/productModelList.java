@@ -7,6 +7,25 @@ public class productModelList {
     String mrp;
     String category;
     String productId;
+    String productOrderId;
+    String productQuantity;
+
+    public String getProductQuantity() {
+        return productQuantity;
+    }
+
+    public void setProductQuantity(String productQuantity) {
+        this.productQuantity = productQuantity;
+    }
+
+    public String getProductOrderId() {
+        return productOrderId;
+    }
+
+    public void setProductOrderId(String productOrderId) {
+        this.productOrderId = productOrderId;
+    }
+
     String description;
     String quantity;
     String seller;

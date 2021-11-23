@@ -1,7 +1,6 @@
 package com.example.tandonmedicalseller;
 
 import android.Manifest;
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -12,6 +11,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -19,7 +19,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -43,14 +42,16 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ImageView orders_history_iv;
-    private ImageView profile;
-    RecyclerView productRecyclerView;
+    private TextView total_earning_tv,order_count_tv;
+    private ImageView orders_history_iv, profile;
+    private CardView uploadBtn;
+    private String sellerUid;
+    private int orderCount;
+    private float totalEarning;
+    private RecyclerView productRecyclerView;
     private FirebaseFirestore mDb;
     private FirebaseAuth firebaseAuth;
     private StorageReference mStorageRef;
-    private CardView uploadBtn;
-
     private FusedLocationProviderClient fusedLocationProviderClient;
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
 
@@ -62,15 +63,19 @@ public class MainActivity extends AppCompatActivity {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         orders_history_iv = findViewById(R.id.orders_history_iv);
         profile = findViewById(R.id.seller_profile_image_view);
+        order_count_tv = findViewById(R.id.order_count_tv);
+        total_earning_tv = findViewById(R.id.total_earning_tv);
         uploadBtn = findViewById(R.id.upload_btn);
         firebaseAuth = FirebaseAuth.getInstance();
         mDb = FirebaseFirestore.getInstance();
         mStorageRef = FirebaseStorage.getInstance().getReference();
+        sellerUid = firebaseAuth.getUid();
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
         getCurrentLocation();
-
         setCurrentUserImage();
+        getSellerOrderCount();
+        getSellerTotalEarning();
         orders_history_iv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,6 +92,44 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), upload.class));
+            }
+        });
+    }
+
+
+
+    private void getSellerTotalEarning() {
+
+        mDb.collection("seller").document(sellerUid).collection("orders")
+                .whereEqualTo("status", "delivered")
+                .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    totalEarning = 0;
+                    for (QueryDocumentSnapshot document : task.getResult()) {
+                        totalEarning = totalEarning + Float.parseFloat((String) document.get("price"));
+                    }
+                    total_earning_tv.setText(String.valueOf(totalEarning)+" Rs");
+                }
+            }
+        });
+    }
+
+    private void getSellerOrderCount() {
+
+        mDb.collection("seller").document(sellerUid).collection("orders")
+                .whereEqualTo("status", "on the way")
+                .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    orderCount = 0;
+                    for (QueryDocumentSnapshot document : task.getResult()) {
+                        orderCount++;
+                    }
+                    order_count_tv.setText(String.valueOf(orderCount));
+                }
             }
         });
     }
@@ -108,7 +151,6 @@ public class MainActivity extends AppCompatActivity {
 
                     Location location = task.getResult();
                     if (location != null) {
-                        Toast.makeText(MainActivity.this, "location = "+location.getLatitude(), Toast.LENGTH_SHORT).show();
                         GeoPoint geoPoint = new GeoPoint(location.getLatitude(), location.getLongitude());
                         Map<String, Object> updateUserLocation = new HashMap<>();
                         updateUserLocation.put("geo_point", geoPoint);
@@ -137,6 +179,8 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         final ArrayList<productModelList> productModelLists = getAllProducts();
         setCurrentUserImage();
+        getSellerOrderCount();
+        getSellerTotalEarning();
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override

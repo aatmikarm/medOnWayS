@@ -18,10 +18,12 @@ import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -64,29 +66,21 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class productStatus extends AppCompatActivity implements OnMapReadyCallback {
 
-    private TextView productStatus_deliveryPersonName_tv;
-    private TextView productStaus_arrivalTime;
-    private ImageView productStatus_deliveryPerson_iv , productStatus_back_iv;
-    private CardView productStatus_deliveryPersonCall;
+    private TextView productStatus_deliveryPersonName_tv, productStaus_arrivalTime;
+    private EditText enterOTP_et;
+    private ImageView productStatus_deliveryPerson_iv, productStatus_back_iv;
+    private CardView productStatus_deliveryPersonCall, delivered_cv;
+    private String sellerId, userId, userName, userPhone, productId,productOrderId, distanceBetweenUserAndSeller, productOTP;
     String sellerDefaultImageUrl = "https://firebasestorage.googleapis.com/v0/b/test1photographer.appspot.com/o/default%2FuserDefault.png?alt=media&token=0f495f89-caa3-4bcb-b278-97548eb77490";
-
-    //firebase
+    private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
     private FirebaseFirestore mDb;
-    private String sellerId,userId,userName,userPhone,productId;
     private FirebaseAuth firebaseAuth;
     private StorageReference mStorageRef;
-
-    //maps
     private GoogleMap map;
     private FusedLocationProviderClient fusedLocationProviderClient;
-    private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
-
-    private GeoPoint sellerGeoPoint;
-    private GeoPoint userGeoPoint;
-    private String distanceBetweenUserAndSeller;
+    private GeoPoint sellerGeoPoint, userGeoPoint;
     private Handler handler1;
     private Runnable runnable1;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,6 +95,7 @@ public class productStatus extends AppCompatActivity implements OnMapReadyCallba
 
         if (getIntent().getExtras() != null) {
             this.productId = (String) getIntent().getExtras().get("productId");
+            this.productOrderId = (String) getIntent().getExtras().get("productOrderId");
             this.userId = (String) getIntent().getExtras().get("userId");
         }
 
@@ -109,12 +104,33 @@ public class productStatus extends AppCompatActivity implements OnMapReadyCallba
         productStatus_deliveryPerson_iv = findViewById(R.id.productStatus_deliveryPerson_iv);
         productStatus_back_iv = findViewById(R.id.productStatus_back_iv);
         productStatus_deliveryPersonCall = findViewById(R.id.productStatus_deliveryPersonCall);
+        delivered_cv = findViewById(R.id.delivered_cv);
+        enterOTP_et = findViewById(R.id.enterOTP_et);
 
         productStatus_deliveryPersonCall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", userPhone, null));
                 startActivity(intent);
+            }
+        });
+        OTP_OfProduct();
+        delivered_cv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String sellerOTP = enterOTP_et.getText().toString();
+                if (TextUtils.isEmpty(sellerOTP)) {
+                    Toast.makeText(productStatus.this, "Please Enter OTP", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (!(productOTP.equals(sellerOTP))) {
+                    Toast.makeText(productStatus.this, "Please Enter Correct OTP", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+
+                updateProductStatus();
+                Toast.makeText(productStatus.this, "Product Delivered to customer", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -146,6 +162,42 @@ public class productStatus extends AppCompatActivity implements OnMapReadyCallba
                 handler1.postDelayed(this, 10000);
             }
         }, 5000);
+    }
+
+    private void updateProductStatus() {
+        Map<String, Object> updateUserInfo = new HashMap<>();
+        updateUserInfo.put("status", "delivered");
+        mDb.collection("users").document(userId)
+                .collection("orders").document(productOrderId)
+                .update(updateUserInfo);
+        Map<String, Object> updateSellerInfo = new HashMap<>();
+        updateUserInfo.put("status", "delivered");
+        mDb.collection("seller").document(sellerId)
+                .collection("orders").document(productOrderId)
+                .update(updateUserInfo);
+    }
+
+    private void OTP_OfProduct() {
+        mDb.collection("seller")
+                .document(sellerId)
+                .collection("orders")
+                .document(productOrderId)
+                .get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        productOTP = (String) document.get("otp").toString();
+                        Toast.makeText(productStatus.this, productOTP, Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "error", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(getApplicationContext(), "failed ", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     private String convertSecondsToTime(double timeInSeconds) {
@@ -213,7 +265,6 @@ public class productStatus extends AppCompatActivity implements OnMapReadyCallba
                 public void onComplete(@NonNull Task<Location> task) {
                     Location location = task.getResult();
                     if (location != null) {
-                        Toast.makeText(productStatus.this, "location = " + location.getLatitude(), Toast.LENGTH_SHORT).show();
                         map.setMyLocationEnabled(true);
                         map.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(location.getLatitude(), location.getLongitude()), 15.0f));
                         GeoPoint geoPoint = new GeoPoint(location.getLatitude(), location.getLongitude());
@@ -266,7 +317,6 @@ public class productStatus extends AppCompatActivity implements OnMapReadyCallba
                                                         .into(new CustomTarget<Bitmap>() {
                                                             @Override
                                                             public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
-
                                                                 Bitmap bitmap = getCircularBitmap(resource);
                                                                 GeoPoint geoPoint = (GeoPoint) document.get("geo_point");
                                                                 sellerGeoPoint = geoPoint;
@@ -382,27 +432,21 @@ public class productStatus extends AppCompatActivity implements OnMapReadyCallba
 
     public static Bitmap getCircularBitmap(Bitmap bitmap) {
         Bitmap output;
-
         if (bitmap.getWidth() > bitmap.getHeight()) {
             output = Bitmap.createBitmap(bitmap.getHeight(), bitmap.getHeight(), Bitmap.Config.ARGB_8888);
         } else {
             output = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getWidth(), Bitmap.Config.ARGB_8888);
         }
-
         Canvas canvas = new Canvas(output);
-
         final int color = 0xff424242;
         final Paint paint = new Paint();
         final Rect rect = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
-
         float r = 0;
-
         if (bitmap.getWidth() > bitmap.getHeight()) {
             r = bitmap.getHeight() / 2;
         } else {
             r = bitmap.getWidth() / 2;
         }
-
         paint.setAntiAlias(true);
         canvas.drawARGB(0, 0, 0, 0);
         paint.setColor(color);
@@ -432,5 +476,4 @@ public class productStatus extends AppCompatActivity implements OnMapReadyCallba
         marker.draw(canvas);
         return bitmap;
     }
-
 }

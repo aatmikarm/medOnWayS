@@ -1820,7 +1820,8 @@ int drawable notification_template_icon_low_bg 0x7f0700aa
 int drawable notification_tile_bg 0x7f0700ab
 int drawable notify_panel_notification_icon_bg 0x7f0700ac
 int drawable onesde_rounded_corners 0x7f0700ad
-int drawable rectangular_border 0x7f0700ae
+int drawable rectangular_color_border 0x7f0700b8
+int drawable rectangular_no_color_border 0x7f0700b9
 int drawable roundedittext 0x7f0700af
 int drawable tandonmedicalicon 0x7f0700b0
 int drawable test 0x7f0700b1
@@ -1976,6 +1977,7 @@ int id decelerate 0x7f08008d
 int id decelerateAndComplete 0x7f08008e
 int id decor_content_parent 0x7f08008f
 int id default_activity_button 0x7f080090
+int id delivered_cv 0x7f08022f
 int id deltaRelative 0x7f080091
 int id dependency_ordering 0x7f080092
 int id design_bottom_sheet 0x7f080093
@@ -2017,6 +2019,7 @@ int id end 0x7f0800b6
 int id endToStart 0x7f0800b7
 int id enterAlways 0x7f0800b8
 int id enterAlwaysCollapsed 0x7f0800b9
+int id enterOTP_et 0x7f080231
 int id exitUntilCollapsed 0x7f0800ba
 int id expand_activities_button 0x7f0800bb
 int id expanded_menu 0x7f0800bc
@@ -2057,6 +2060,7 @@ int id ignoreRequest 0x7f0800de
 int id image 0x7f0800df
 int id imageView 0x7f0800e0
 int id imageView2 0x7f0800e1
+int id incon1 0x7f08022e
 int id info 0x7f0800e2
 int id invisible 0x7f0800e3
 int id inward 0x7f0800e4
@@ -2150,6 +2154,9 @@ int id notification_main_column_container 0x7f08013a
 int id off 0x7f08013b
 int id on 0x7f08013c
 int id options_container 0x7f08013d
+int id orderProduct_quantity_cv 0x7f080234
+int id order_count_tv 0x7f080232
+int id order_quantity_tv 0x7f080236
 int id order_status_cv 0x7f080218
 int id order_status_tv 0x7f080219
 int id orders_back_iv 0x7f08021a
@@ -2348,6 +2355,7 @@ int id title_template 0x7f0801eb
 int id toggle 0x7f0801ec
 int id top 0x7f0801ed
 int id topPanel 0x7f0801ee
+int id total_earning_tv 0x7f080233
 int id touch_outside 0x7f0801ef
 int id transitionToEnd 0x7f0801f0
 int id transitionToStart 0x7f0801f1

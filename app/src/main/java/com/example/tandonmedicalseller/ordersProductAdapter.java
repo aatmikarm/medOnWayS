@@ -1,7 +1,9 @@
 package com.example.tandonmedicalseller;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,7 +48,14 @@ public class ordersProductAdapter extends RecyclerView.Adapter<ordersProductAdap
         holder.productMrp.setText("Rs. " + productModelList.get(position).mrp + ".00");
         holder.productDiscount.setText(productModelList.get(position).discount + "% OFF");
         holder.productMrp.setPaintFlags(holder.productMrp.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-
+        holder.order_quantity_tv.setText(productModelList.get(position).productQuantity);
+        if(productModelList.get(position).status.equals("delivered")){
+            holder.order_status_cv.setCardBackgroundColor(Color.parseColor("#EAEDED"));
+            holder.order_status_tv.setTextColor(Color.BLACK);
+        }
+        if(productModelList.get(position).status.equals("on the way")){
+            holder.order_status_cv.setCardBackgroundColor(Color.parseColor("#FFED2F65"));
+        }
     }
 
     @Override
@@ -56,11 +65,7 @@ public class ordersProductAdapter extends RecyclerView.Adapter<ordersProductAdap
 
     public class ItemViewHolder extends RecyclerView.ViewHolder {
         ImageView productImage;
-        TextView productName;
-        TextView productPrice;
-        TextView productMrp;
-        TextView productDiscount;
-        TextView order_status_tv;
+        TextView productName,productPrice,productMrp,productDiscount,order_status_tv,order_quantity_tv;
         ConstraintLayout productContainer;
         CardView order_status_cv;
 
@@ -74,6 +79,7 @@ public class ordersProductAdapter extends RecyclerView.Adapter<ordersProductAdap
             productDiscount = itemView.findViewById(R.id.orders_discount_text_view);
             order_status_cv = itemView.findViewById(R.id.order_status_cv);
             order_status_tv = itemView.findViewById(R.id.order_status_tv);
+            order_quantity_tv = itemView.findViewById(R.id.order_quantity_tv);
             order_status_cv.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
