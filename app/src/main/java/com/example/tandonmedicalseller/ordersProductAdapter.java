@@ -16,7 +16,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class ordersProductAdapter extends RecyclerView.Adapter<ordersProductAdapter.ItemViewHolder> {
     private Context context;
@@ -49,6 +52,14 @@ public class ordersProductAdapter extends RecyclerView.Adapter<ordersProductAdap
         holder.productDiscount.setText(productModelList.get(position).discount + "% OFF");
         holder.productMrp.setPaintFlags(holder.productMrp.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
         holder.order_quantity_tv.setText(productModelList.get(position).productQuantity);
+        try {
+            String oldstring = productModelList.get(position).productOrderPlacedTime;
+            Date date = new SimpleDateFormat("ssmmHHddMMyyyy").parse(oldstring);
+            String newstring = new SimpleDateFormat("EEE, d MMM yyyy hh:mm:ss aaa").format(date);
+            holder.order_date_time_tv.setText(newstring);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         if(productModelList.get(position).status.equals("delivered")){
             holder.order_status_cv.setCardBackgroundColor(Color.parseColor("#EAEDED"));
             holder.order_status_tv.setTextColor(Color.BLACK);
@@ -65,7 +76,7 @@ public class ordersProductAdapter extends RecyclerView.Adapter<ordersProductAdap
 
     public class ItemViewHolder extends RecyclerView.ViewHolder {
         ImageView productImage;
-        TextView productName,productPrice,productMrp,productDiscount,order_status_tv,order_quantity_tv;
+        TextView productName,productPrice,productMrp,productDiscount,order_status_tv,order_quantity_tv,order_date_time_tv;
         ConstraintLayout productContainer;
         CardView order_status_cv;
 
@@ -80,6 +91,7 @@ public class ordersProductAdapter extends RecyclerView.Adapter<ordersProductAdap
             order_status_cv = itemView.findViewById(R.id.order_status_cv);
             order_status_tv = itemView.findViewById(R.id.order_status_tv);
             order_quantity_tv = itemView.findViewById(R.id.order_quantity_tv);
+            order_date_time_tv = itemView.findViewById(R.id.order_date_time_tv);
             order_status_cv.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

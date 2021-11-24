@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     totalEarning = 0;
                     for (QueryDocumentSnapshot document : task.getResult()) {
-                        totalEarning = totalEarning + Float.parseFloat((String) document.get("price"));
+                        totalEarning = totalEarning +(Float.parseFloat((String) document.get("price")) * Float.parseFloat((String) document.get("productQuantity")));
                     }
                     total_earning_tv.setText(String.valueOf(totalEarning)+" Rs");
                 }

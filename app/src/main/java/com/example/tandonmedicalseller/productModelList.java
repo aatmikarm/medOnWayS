@@ -9,6 +9,15 @@ public class productModelList {
     String productId;
     String productOrderId;
     String productQuantity;
+    String productOrderPlacedTime;
+
+    public String getProductOrderPlacedTime() {
+        return productOrderPlacedTime;
+    }
+
+    public void setProductOrderPlacedTime(String productOrderPlacedTime) {
+        this.productOrderPlacedTime = productOrderPlacedTime;
+    }
 
     public String getProductQuantity() {
         return productQuantity;

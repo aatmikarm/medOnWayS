@@ -2,6 +2,7 @@ package com.example.tandonmedicalseller;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -72,6 +73,24 @@ public class orders extends AppCompatActivity  implements ordersProductInterface
 
 
     }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        productModelLists = getOrdersProducts();
+
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+                ordersProductRecyclerView = findViewById(R.id.orders_list_recycler_view);
+                ordersProductAdapter ordersProductAdapter = new ordersProductAdapter(getApplicationContext(), productModelLists, orders.this);
+                ordersProductRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false));
+                ordersProductRecyclerView.setAdapter(ordersProductAdapter);
+
+            }
+        }, 3000);
+    }
 
     private ArrayList<productModelList> getOrdersProducts() {
 
@@ -102,6 +121,7 @@ public class orders extends AppCompatActivity  implements ordersProductInterface
                         productModelList.setStatus((String) document.get("status"));
                         productModelList.setUserId((String) document.get("userId"));
                         productModelList.setProductQuantity((String) document.get("productQuantity"));
+                        productModelList.setProductOrderPlacedTime((String) document.get("productOrderPlacedTime"));
 
                         productModelLists.add(productModelList);
 
@@ -135,6 +155,7 @@ public class orders extends AppCompatActivity  implements ordersProductInterface
                         productModelList.setStatus((String) document.get("status"));
                         productModelList.setUserId((String) document.get("userId"));
                         productModelList.setProductQuantity((String) document.get("productQuantity"));
+                        productModelList.setProductOrderPlacedTime((String) document.get("productOrderPlacedTime"));
 
                         productModelLists.add(productModelList);
 

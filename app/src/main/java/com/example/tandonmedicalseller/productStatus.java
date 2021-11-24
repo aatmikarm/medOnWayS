@@ -131,6 +131,7 @@ public class productStatus extends AppCompatActivity implements OnMapReadyCallba
 
                 updateProductStatus();
                 Toast.makeText(productStatus.this, "Product Delivered to customer", Toast.LENGTH_SHORT).show();
+                finish();
             }
         });
 
