@@ -35,8 +35,10 @@ import com.google.firebase.storage.UploadTask;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class upload extends AppCompatActivity implements categoryInterface {
@@ -276,6 +278,10 @@ public class upload extends AppCompatActivity implements categoryInterface {
                             int mrp = Integer.parseInt(uploadMrp_et.getText().toString());
                             int discount = 100 - (price * 100) / mrp;
 
+                            String nameTags = uploadName_et.getText().toString();
+                            String[] tagsArray = nameTags.split(" ");
+                            List<String> tags = Arrays.asList(tagsArray);
+
                             Map<String, Object> uploadNewProduct = new HashMap<>();
                             uploadNewProduct.put("name", uploadName_et.getText().toString());
                             uploadNewProduct.put("price", uploadPrice_et.getText().toString());
@@ -283,6 +289,7 @@ public class upload extends AppCompatActivity implements categoryInterface {
                             uploadNewProduct.put("discount", String.valueOf(discount));
                             uploadNewProduct.put("category", categoryName);
                             uploadNewProduct.put("seller", seller);
+                            uploadNewProduct.put("tags", tags);
                             uploadNewProduct.put("sellerId", sellerId);
                             uploadNewProduct.put("description", uploadDescription_et.getText().toString());
                             uploadNewProduct.put("productId", productId);
