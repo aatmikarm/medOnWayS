@@ -26,6 +26,9 @@
         <activity android:name=".orders" />
         <activity android:name=".signUp" />
         <activity android:name=".editProductDetails" />
+        <activity
+            android:name=".search"
+            android:exported="true" />
         <activity android:name=".MainActivity" />
         <activity android:name=".productStatus" />
         <activity android:name=".ResetPasswordActivity" />

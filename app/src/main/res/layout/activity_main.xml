@@ -19,10 +19,11 @@
             android:id="@+id/History_orders_cardView"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_margin="20dp"
+            android:layout_margin="10dp"
             app:cardCornerRadius="50dp"
+            app:layout_constraintBottom_toBottomOf="@+id/profile_image_cardView"
             app:layout_constraintEnd_toStartOf="@+id/profile_image_cardView"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="@+id/profile_image_cardView">
 
             <ImageView
                 android:layout_width="match_parent"
@@ -41,12 +42,37 @@
 
         </androidx.cardview.widget.CardView>
 
+        <androidx.cardview.widget.CardView
+            android:id="@+id/search_cv"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            app:cardCornerRadius="50dp"
+            app:layout_constraintBottom_toBottomOf="@+id/History_orders_cardView"
+            app:layout_constraintEnd_toStartOf="@+id/History_orders_cardView"
+            app:layout_constraintTop_toTopOf="@+id/History_orders_cardView">
 
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/circular_border"
+                android:elevation="50dp" />
+
+            <ImageView
+                android:id="@+id/search_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_gravity="center"
+                android:background="@drawable/search_ic"
+                android:backgroundTint="@color/teal_700" />
+
+
+        </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
             android:id="@+id/profile_image_cardView"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_margin="20dp"
+            android:layout_margin="10dp"
             app:cardCornerRadius="50dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -71,7 +97,7 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_margin="10dp"
             android:text="Dashboard"
             android:textColor="@color/white"
             android:textSize="32sp"

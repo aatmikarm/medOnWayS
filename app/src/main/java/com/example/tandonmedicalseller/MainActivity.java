@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView total_earning_tv,order_count_tv;
     private ImageView orders_history_iv, profile;
-    private CardView uploadBtn;
+    private CardView uploadBtn,search_cv;
     private String sellerUid;
     private int orderCount;
     private float totalEarning;
@@ -65,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
         profile = findViewById(R.id.seller_profile_image_view);
         order_count_tv = findViewById(R.id.order_count_tv);
         total_earning_tv = findViewById(R.id.total_earning_tv);
+        search_cv = findViewById(R.id.search_cv);
         uploadBtn = findViewById(R.id.upload_btn);
         firebaseAuth = FirebaseAuth.getInstance();
         mDb = FirebaseFirestore.getInstance();
@@ -92,6 +93,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), upload.class));
+            }
+        });
+        search_cv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), search.class));
             }
         });
     }

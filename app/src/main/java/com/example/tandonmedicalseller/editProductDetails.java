@@ -35,8 +35,10 @@ import com.google.firebase.storage.UploadTask;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class editProductDetails extends AppCompatActivity implements categoryInterface {
@@ -249,12 +251,17 @@ public class editProductDetails extends AppCompatActivity implements categoryInt
                             int mrp = Integer.parseInt(editMrp_et.getText().toString());
                             int discount = 100 - (price * 100) / mrp;
 
+                            String name = editName_et.getText().toString();
+                            String[] tagsArray = name.split(" ");
+                            List<String> tags = Arrays.asList(tagsArray);
+
                             Map<String, Object> editNewProduct = new HashMap<>();
                             editNewProduct.put("name", editName_et.getText().toString());
                             editNewProduct.put("price", editPrice_et.getText().toString());
                             editNewProduct.put("mrp", editMrp_et.getText().toString());
                             editNewProduct.put("discount", String.valueOf(discount));
                             editNewProduct.put("category", categoryName);
+                            editNewProduct.put("tags", tags);
                             editNewProduct.put("description", editDescription_et.getText().toString());
                             editNewProduct.put("productId", productId);
                             editNewProduct.put("imageUrl", uri.toString());
