@@ -70,8 +70,8 @@ public class productStatus extends AppCompatActivity implements OnMapReadyCallba
     private EditText enterOTP_et;
     private ImageView productStatus_deliveryPerson_iv, productStatus_back_iv;
     private CardView productStatus_deliveryPersonCall, delivered_cv;
-    private String sellerId, userId, userName, userPhone, productId,productOrderId, distanceBetweenUserAndSeller, productOTP;
-    String sellerDefaultImageUrl = "https://firebasestorage.googleapis.com/v0/b/test1photographer.appspot.com/o/default%2FuserDefault.png?alt=media&token=0f495f89-caa3-4bcb-b278-97548eb77490";
+    private String sellerId, userId, userName, userPhone, productId, productOrderId, distanceBetweenUserAndSeller, productOTP;
+    String defaultImageUrl = "https://firebasestorage.googleapis.com/v0/b/tandon-medical-8ee54.appspot.com/o/tandon%20medical.png?alt=media&token=72ebb684-c837-4a66-b282-6bfa03a7c69a";
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
     private FirebaseFirestore mDb;
     private FirebaseAuth firebaseAuth;
@@ -314,7 +314,7 @@ public class productStatus extends AppCompatActivity implements OnMapReadyCallba
                                             public void onFailure(@NonNull Exception e) {
                                                 Glide.with(productStatus.this)
                                                         .asBitmap()
-                                                        .load(sellerDefaultImageUrl)
+                                                        .load(defaultImageUrl)
                                                         .into(new CustomTarget<Bitmap>() {
                                                             @Override
                                                             public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
@@ -391,7 +391,7 @@ public class productStatus extends AppCompatActivity implements OnMapReadyCallba
                                             public void onFailure(@NonNull Exception e) {
                                                 Glide.with(productStatus.this)
                                                         .asBitmap()
-                                                        .load(sellerDefaultImageUrl)
+                                                        .load(defaultImageUrl)
                                                         .into(new CustomTarget<Bitmap>() {
                                                             @Override
                                                             public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {

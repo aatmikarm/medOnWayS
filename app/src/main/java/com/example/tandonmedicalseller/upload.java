@@ -46,13 +46,7 @@ public class upload extends AppCompatActivity implements categoryInterface {
     private FirebaseFirestore mDb;
     private FirebaseAuth firebaseAuth;
     private StorageReference storageReference;
-    private String currentUserUid;
-    private static final int PICK_IMAGE_REQUEST = 77;
-    String dateandtimepattern = "ssmmHHddMMyyyy";
-    String tempProductUrl;
-    String categoryName;
-    private String seller;
-    private String sellerId;
+    private String currentUserUid, seller, sellerId, sellerToken, categoryName, tempProductUrl;
     ArrayList<categoriesModelList> categoriesModelLists;
     private CardView uploadBtn;
     private ImageView backBtn, uploadImage_iv;
@@ -119,6 +113,7 @@ public class upload extends AppCompatActivity implements categoryInterface {
                     if (document.exists()) {
                         seller = document.get("name").toString();
                         sellerId = document.get("uid").toString();
+                        sellerToken = document.get("sellerToken").toString();
                     } else {
                         Toast.makeText(getApplicationContext(), "error", Toast.LENGTH_SHORT).show();
                     }
@@ -133,13 +128,13 @@ public class upload extends AppCompatActivity implements categoryInterface {
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent, "Select Image from here..."), PICK_IMAGE_REQUEST);
+        startActivityForResult(Intent.createChooser(intent, "Select Image from here..."), 77);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {   // Get the Uri of data
+        if (requestCode == 77 && resultCode == RESULT_OK && data != null && data.getData() != null) {   // Get the Uri of data
             filePath = data.getData();
             try {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
@@ -203,7 +198,7 @@ public class upload extends AppCompatActivity implements categoryInterface {
                         @Override
                         public void onSuccess(Uri uri) {
                             //setImageUrl(uri.toString());
-                            SimpleDateFormat sdf = new SimpleDateFormat(dateandtimepattern);
+                            SimpleDateFormat sdf = new SimpleDateFormat("ssmmHHddMMyyyy");
                             final String productId = sdf.format(new Date());
                             int price = Integer.parseInt(uploadPrice_et.getText().toString());
                             int mrp = Integer.parseInt(uploadMrp_et.getText().toString());
@@ -220,6 +215,7 @@ public class upload extends AppCompatActivity implements categoryInterface {
                             uploadNewProduct.put("seller", seller);
                             uploadNewProduct.put("tags", tags);
                             uploadNewProduct.put("sellerId", sellerId);
+                            uploadNewProduct.put("sellerToken", sellerToken);
                             uploadNewProduct.put("description", uploadDescription_et.getText().toString());
                             uploadNewProduct.put("productId", productId);
                             uploadNewProduct.put("imageUrl", uri.toString());

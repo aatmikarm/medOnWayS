@@ -12,7 +12,6 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -42,10 +41,11 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView total_earning_tv,order_count_tv;
+    private TextView total_earning_tv, order_count_tv;
     private ImageView orders_history_iv, profile;
-    private CardView uploadBtn,search_cv;
+    private CardView uploadBtn, search_cv;
     private String sellerUid;
+    private String defaultImageUrl = "https://firebasestorage.googleapis.com/v0/b/tandon-medical-8ee54.appspot.com/o/tandon%20medical.png?alt=media&token=72ebb684-c837-4a66-b282-6bfa03a7c69a";
     private int orderCount;
     private float totalEarning;
     private RecyclerView productRecyclerView;
@@ -53,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private StorageReference mStorageRef;
     private FusedLocationProviderClient fusedLocationProviderClient;
-    private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,7 +103,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
     private void getSellerTotalEarning() {
 
         mDb.collection("seller").document(sellerUid).collection("orders")
@@ -115,9 +113,9 @@ public class MainActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     totalEarning = 0;
                     for (QueryDocumentSnapshot document : task.getResult()) {
-                        totalEarning = totalEarning +(Float.parseFloat((String) document.get("price")) * Float.parseFloat((String) document.get("productQuantity")));
+                        totalEarning = totalEarning + (Float.parseFloat((String) document.get("price")) * Float.parseFloat((String) document.get("productQuantity")));
                     }
-                    total_earning_tv.setText(String.valueOf(totalEarning)+" Rs");
+                    total_earning_tv.setText(String.valueOf(totalEarning) + " Rs");
                 }
             }
         });
@@ -150,7 +148,7 @@ public class MainActivity extends AppCompatActivity {
                 ActivityCompat.requestPermissions(this,
                         new String[]{Manifest.permission.ACCESS_FINE_LOCATION,
                                 Manifest.permission.ACCESS_FINE_LOCATION},
-                        LOCATION_PERMISSION_REQUEST_CODE);
+                        1);
             }
             fusedLocationProviderClient.getLastLocation().addOnCompleteListener(new OnCompleteListener<Location>() {
                 @Override
@@ -203,7 +201,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<productModelList> getAllProducts() {
         String currentUserUid = firebaseAuth.getUid();
         final ArrayList<productModelList> productModelLists = new ArrayList<>();
-        mDb.collection("products").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        mDb.collection("products").whereEqualTo("sellerId",sellerUid).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
