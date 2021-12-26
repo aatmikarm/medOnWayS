@@ -108,6 +108,7 @@ public class signUp extends AppCompatActivity {
                             seller.put("password", signupPassword);
                             seller.put("bio", "");
                             seller.put("sellerToken", sellerToken);
+                            seller.put("type", "seller");
                             seller.put("CurrentDateAndTime", CurrentDateAndTime);
                             mDb.collection("seller").document(uid).set(seller);
                             Toast.makeText(signUp.this, "Successfully registered", Toast.LENGTH_LONG).show();
