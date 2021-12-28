@@ -14,7 +14,7 @@
         android:padding="12dp"
         android:layout_margin="20dp"
         android:text="Tandon Medical"
-        android:textColor="@color/purple_200"
+        android:textColor="@color/light"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -48,7 +48,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/purple_200">
+            android:background="@color/light">
 
 
             <ScrollView
@@ -83,7 +83,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_margin="10dp"
-                            android:background="@drawable/roundedittext"
+
                             android:hint="Email Address"
                             android:padding="5dp" />
 
@@ -92,7 +92,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_margin="10dp"
-                            android:background="@drawable/roundedittext"
+
                             android:hint="Password"
                             android:padding="5dp" />
 
@@ -162,7 +162,7 @@
                         android:layout_height="wrap_content"
                         android:padding="10dp"
                         android:text="forgot Password"
-                        android:textColor="@color/black"
+
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -198,7 +198,7 @@
                         android:layout_height="wrap_content"
                         android:padding="10dp"
                         android:text="Create Account"
-                        android:textColor="@color/black"
+
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"

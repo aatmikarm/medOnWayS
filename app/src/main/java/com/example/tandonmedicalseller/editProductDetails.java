@@ -81,7 +81,7 @@ public class editProductDetails extends AppCompatActivity implements categoryInt
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_product_details);
 
-        getSupportActionBar().hide();
+        
 
 
         firebaseAuth = FirebaseAuth.getInstance();

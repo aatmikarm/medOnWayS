@@ -22,7 +22,7 @@
             android:layout_height="30dp"
             android:layout_margin="10dp"
             android:background="@drawable/ic_backicon"
-            android:backgroundTint="@color/purple_200"
+            android:backgroundTint="@color/light"
             android:clickable="true"
             android:focusable="true"
             android:foreground="?android:attr/selectableItemBackground"
@@ -37,7 +37,7 @@
             android:layout_height="30dp"
             android:layout_margin="10dp"
             android:background="@drawable/ic_logout"
-            android:backgroundTint="@color/purple_200"
+            android:backgroundTint="@color/light"
             android:clickable="true"
             android:focusable="true"
             android:foreground="?android:attr/selectableItemBackground"
@@ -105,7 +105,7 @@
             android:gravity="center_horizontal"
             android:maxLines="1"
             android:text="User Name"
-            android:textColor="#000"
+
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -123,8 +123,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:outlineAmbientShadowColor="@color/purple_700"
-        android:outlineSpotShadowColor="@color/purple_200"
+        android:outlineAmbientShadowColor="@color/light"
+        android:outlineSpotShadowColor="@color/light"
         app:cardCornerRadius="20dp"
         app:cardElevation="12dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -151,7 +151,7 @@
                     android:layout_margin="5dp"
                     android:gravity="center"
                     android:text="12"
-                    android:textColor="@color/black"
+
                     android:textSize="22sp"
                     android:textStyle="bold" />
 
@@ -161,7 +161,7 @@
                     android:gravity="center"
                     android:text="Orders"
                     android:textAllCaps="true"
-                    android:textColor="@color/purple_200"
+                    android:textColor="@color/light"
                     android:textSize="12sp" />
 
             </LinearLayout>
@@ -182,7 +182,7 @@
                     android:layout_margin="5dp"
                     android:gravity="center"
                     android:text="3"
-                    android:textColor="@color/black"
+
                     android:textSize="22sp"
                     android:textStyle="bold" />
 
@@ -192,7 +192,7 @@
                     android:gravity="center"
                     android:text="Prescriptions"
                     android:textAllCaps="true"
-                    android:textColor="@color/purple_200"
+                    android:textColor="@color/light"
                     android:textSize="12sp" />
 
             </LinearLayout>
@@ -233,7 +233,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:background="@drawable/roundedittext"
+
                     android:hint="Name"
                     android:padding="5dp" />
 
@@ -242,7 +242,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:background="@drawable/roundedittext"
+
                     android:editable="false"
                     android:hint="Email Address"
                     android:padding="5dp" />
@@ -252,7 +252,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:background="@drawable/roundedittext"
+
                     android:hint="Phone Number"
                     android:padding="5dp" />
 
@@ -261,7 +261,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
                     android:layout_margin="10dp"
-                    android:background="@drawable/roundedittext"
+
                     android:hint="Bio"
                     android:padding="5dp" />
 
@@ -279,7 +279,7 @@
         android:id="@+id/con3"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="#FFFFFF"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -289,7 +289,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:backgroundTint="@color/teal_700"
+            android:backgroundTint="@color/light"
             app:cardCornerRadius="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -306,7 +306,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:text="Upload"
-                    android:textColor="@color/white"
+
                     android:textSize="20sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"

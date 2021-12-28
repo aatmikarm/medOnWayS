@@ -37,7 +37,7 @@
                 android:layout_height="40dp"
                 android:layout_gravity="center"
                 android:background="@drawable/ic_baseline_notifications_none_24"
-                android:backgroundTint="@color/teal_700" />
+                android:backgroundTint="@color/light" />
 
 
         </androidx.cardview.widget.CardView>
@@ -64,7 +64,7 @@
                 android:layout_height="25dp"
                 android:layout_gravity="center"
                 android:background="@drawable/search_ic"
-                android:backgroundTint="@color/teal_700" />
+                android:backgroundTint="@color/light" />
 
 
         </androidx.cardview.widget.CardView>
@@ -99,7 +99,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:text="Dashboard"
-            android:textColor="@color/white"
+
             android:textSize="32sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@id/divider"
@@ -140,7 +140,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:text="Orders"
-                    android:textColor="@color/purple_200"
+                    android:textColor="@color/light"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -192,7 +192,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:text="Earnings"
-                    android:textColor="@color/purple_200"
+                    android:textColor="@color/light"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -226,7 +226,7 @@
         android:id="@+id/con2"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="#FFFFFF"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/con1"
@@ -255,7 +255,7 @@
         android:id="@+id/con3"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="#FFFFFF"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -266,7 +266,7 @@
             app:cardCornerRadius="20dp"
             android:layout_margin="10dp"
             android:id="@+id/upload_btn"
-            android:backgroundTint="@color/teal_700"
+            android:backgroundTint="@color/light"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -282,7 +282,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:text="Upload"
-                    android:textColor="@color/white"
+
                     android:textSize="20sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"

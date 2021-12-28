@@ -3,6 +3,7 @@ package com.example.tandonmedicalseller;
 import android.content.ClipData;
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,8 +46,8 @@ public class categoriesAdapterUpload extends RecyclerView.Adapter<categoriesAdap
 
 
         // Here I am just highlighting the background
-        holder.relativeLayout.setBackgroundColor(selected_position == position ? Color.argb(255, 237, 47, 101) : Color.TRANSPARENT);
-
+        //holder.relativeLayout.setBackgroundColor(selected_position == position ? Color.argb(255, 237, 47, 101) : Color.TRANSPARENT);
+        holder.relativeLayout.setBackgroundResource(selected_position == position ? R.drawable.circle_boder : Color.TRANSPARENT);
 
 
 

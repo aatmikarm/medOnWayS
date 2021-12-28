@@ -57,7 +57,7 @@ public class upload extends AppCompatActivity implements categoryInterface {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upload);
-        getSupportActionBar().hide();
+        
         firebaseAuth = FirebaseAuth.getInstance();
         mDb = FirebaseFirestore.getInstance();
         storageReference = FirebaseStorage.getInstance().getReference();
@@ -259,7 +259,7 @@ public class upload extends AppCompatActivity implements categoryInterface {
 
     @Override
     public void categoryOnClickInterface(int position) {
-        Toast.makeText(this, "Category = " + categoriesModelLists.get(position).getName().toString(), Toast.LENGTH_LONG).show();
+        //Toast.makeText(this, "Category = " + categoriesModelLists.get(position).getName().toString(), Toast.LENGTH_LONG).show();
         this.categoryName = categoriesModelLists.get(position).getName().toString();
     }
 }

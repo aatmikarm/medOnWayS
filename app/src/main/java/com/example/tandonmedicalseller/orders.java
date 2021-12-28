@@ -40,7 +40,7 @@ public class orders extends AppCompatActivity  implements ordersProductInterface
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_orders);
-        getSupportActionBar().hide();
+
 
         firebaseAuth = FirebaseAuth.getInstance();
         mDb = FirebaseFirestore.getInstance();

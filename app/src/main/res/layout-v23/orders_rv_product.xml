@@ -33,7 +33,7 @@
                 android:layout_margin="5dp"
                 android:gravity="center"
                 android:text="15% OFF"
-                android:textColor="@color/white"
+
                 android:textSize="10sp"
                 android:textStyle="bold" />
 
@@ -58,7 +58,7 @@
                 android:layout_margin="5dp"
                 android:gravity="center"
                 android:text="Time"
-                android:textColor="@color/white"
+
                 android:textSize="10sp"
                 android:textStyle="bold" />
 
@@ -102,7 +102,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="1"
-                        android:textColor="@color/white"
+
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -123,7 +123,7 @@
             android:gravity="center_horizontal"
             android:maxLines="2"
             android:text="name"
-            android:textColor="@color/black"
+
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -154,7 +154,7 @@
             android:foregroundGravity="center"
             android:gravity="center"
             android:text="Rs. 238.00"
-            android:textColor="@color/teal_700"
+            android:textColor="@color/light"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/orders_product_mrp"

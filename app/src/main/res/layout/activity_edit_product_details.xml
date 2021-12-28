@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff"
+
     tools:context=".editProductDetails">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -34,7 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="EDIT PRODUCT"
-            android:textColor="@color/black"
+
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -56,7 +56,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Upload Image"
-            android:textColor="@color/black"
+
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.1"
@@ -103,7 +103,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Category"
-                android:textColor="@color/black"
+
                 android:textStyle="bold"
                 android:layout_marginTop="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -137,7 +137,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:background="@drawable/roundedittext"
+
                     android:hint="Name"
                     android:padding="5dp" />
 
@@ -146,7 +146,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:background="@drawable/roundedittext"
+
                     android:hint="Discounted Price"
                     android:padding="5dp" />
 
@@ -155,7 +155,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:background="@drawable/roundedittext"
+
                     android:hint="MRP of Product"
                     android:padding="5dp" />
 
@@ -164,7 +164,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
                     android:layout_margin="10dp"
-                    android:background="@drawable/roundedittext"
+
                     android:hint="Description"
                     android:padding="5dp" />
 
@@ -183,7 +183,7 @@
         android:id="@+id/con3"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="#FFFFFF"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -194,7 +194,7 @@
             app:cardCornerRadius="20dp"
             android:layout_margin="10dp"
             android:id="@+id/edit_final_btn"
-            android:backgroundTint="@color/teal_700"
+            android:backgroundTint="@color/light"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -210,7 +210,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:text="edit"
-                    android:textColor="@color/white"
+
                     android:textSize="20sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"

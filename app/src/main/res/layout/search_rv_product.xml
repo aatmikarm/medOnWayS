@@ -32,7 +32,7 @@
                 android:layout_margin="5dp"
                 android:gravity="center"
                 android:text="15% OFF"
-                android:textColor="@color/white"
+
                 android:textSize="10sp"
                 android:textStyle="bold" />
 
@@ -56,7 +56,7 @@
             android:ems="12"
             android:maxLines="2"
             android:text="name"
-            android:textColor="@color/black"
+
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -139,7 +139,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="Best Price"
-            android:textColor="@color/black"
+
             app:layout_constraintStart_toStartOf="@+id/textView2"
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
@@ -151,7 +151,7 @@
             android:foregroundGravity="center"
             android:gravity="center"
             android:text="Rs. 238.00"
-            android:textColor="@color/teal_700"
+            android:textColor="@color/light"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/textView3"
@@ -163,7 +163,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:backgroundTint="@color/teal_700"
+            android:backgroundTint="@color/light"
             app:cardCornerRadius="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/search_product_discounted_price"
@@ -182,7 +182,7 @@
                     android:foregroundGravity="center"
                     android:gravity="center"
                     android:text="ADD TO CART"
-                    android:textColor="@color/white"
+
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"

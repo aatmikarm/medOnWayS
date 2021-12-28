@@ -21,7 +21,7 @@
             android:layout_height="30dp"
             android:layout_margin="10dp"
             android:background="@drawable/ic_backicon"
-            android:backgroundTint="@color/purple_200"
+            android:backgroundTint="@color/light"
             android:clickable="true"
             android:focusable="true"
             android:foreground="?android:attr/selectableItemBackground"
@@ -34,7 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Product Status"
-            android:textColor="@color/purple_200"
+            android:textColor="@color/light"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -94,7 +94,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:text="05:10 Min"
-                    android:textColor="@color/purple_200"
+                    android:textColor="@color/light"
                     android:textSize="30sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -107,7 +107,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:text="Arrival Time"
-                    android:textColor="@color/black"
+
                     android:textSize="18sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -129,12 +129,12 @@
                     android:layout_height="50dp"
                     android:layout_margin="10dp"
                     android:inputType="number"
-                    android:backgroundTint="@color/purple_200"
+                    android:backgroundTint="@color/light"
                     android:drawableStart="@drawable/ic_grid"
                     android:drawablePadding="10dp"
-                    android:drawableTint="@color/purple_200"
+                    android:drawableTint="@color/light"
                     android:hint="Enter OTP"
-                    android:textColorHint="@color/purple_200"
+                    android:textColorHint="@color/light"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -144,7 +144,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:backgroundTint="@color/teal_700"
+                    android:backgroundTint="@color/light"
                     app:cardCornerRadius="20dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -159,7 +159,7 @@
                             android:layout_height="wrap_content"
                             android:layout_margin="10dp"
                             android:text="Delivered"
-                            android:textColor="@color/white"
+
                             android:textSize="20sp"
                             android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -183,7 +183,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
-                    android:backgroundTint="@color/purple_200"
+                    android:backgroundTint="@color/light"
                     app:cardCornerRadius="20dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -231,7 +231,7 @@
                             android:layout_marginStart="10dp"
                             android:layout_marginLeft="10dp"
                             android:text="Anugrah Tandon"
-                            android:textColor="@color/white"
+
                             android:textSize="18sp"
                             android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="@+id/productStatus_deliveryPersonPic_iv"
@@ -262,7 +262,7 @@
                                 android:layout_margin="5dp"
                                 android:gravity="center"
                                 android:text="4.5"
-                                android:textColor="@color/white"
+
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
                         </LinearLayout>
@@ -289,7 +289,7 @@
                                 android:layout_height="25dp"
                                 android:layout_gravity="center"
                                 android:background="@drawable/ic_call"
-                                android:backgroundTint="@color/teal_700" />
+                                android:backgroundTint="@color/light" />
 
                         </androidx.cardview.widget.CardView>
                     </androidx.constraintlayout.widget.ConstraintLayout>

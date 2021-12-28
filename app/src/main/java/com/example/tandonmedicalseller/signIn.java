@@ -33,7 +33,7 @@ public class signIn extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
-        getSupportActionBar().hide();
+        
         //disable night mode
         //AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         firebaseAuth = FirebaseAuth.getInstance();
