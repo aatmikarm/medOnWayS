@@ -52,7 +52,6 @@ public class editProductDetails extends AppCompatActivity implements categoryInt
 
     String dateandtimepattern = "ssmmHHddMMyyyy";
     String tempProductUrl;
-    String categoryName;
 
     // intent getters
     String category;
@@ -100,6 +99,7 @@ public class editProductDetails extends AppCompatActivity implements categoryInt
 
         if (getIntent().getExtras() != null) {
             this.category = (String) getIntent().getExtras().get("category");
+            Toast.makeText(this, category, Toast.LENGTH_LONG).show();
             this.productId = (String) getIntent().getExtras().get("productId");
             this.seller = (String) getIntent().getExtras().get("seller");
             this.description = (String) getIntent().getExtras().get("description");
@@ -260,7 +260,7 @@ public class editProductDetails extends AppCompatActivity implements categoryInt
                             editNewProduct.put("price", editPrice_et.getText().toString());
                             editNewProduct.put("mrp", editMrp_et.getText().toString());
                             editNewProduct.put("discount", String.valueOf(discount));
-                            editNewProduct.put("category", categoryName);
+                            editNewProduct.put("category", category);
                             editNewProduct.put("tags", tags);
                             editNewProduct.put("description", editDescription_et.getText().toString());
                             editNewProduct.put("productId", productId);
@@ -283,8 +283,6 @@ public class editProductDetails extends AppCompatActivity implements categoryInt
 
         if (filePath == null){
 
-            Toast.makeText(this, "fill null", Toast.LENGTH_LONG).show();
-
             int price = Integer.parseInt(editPrice_et.getText().toString());
             int mrp = Integer.parseInt(editMrp_et.getText().toString());
             int discount = 100 - (price * 100) / mrp;
@@ -294,7 +292,7 @@ public class editProductDetails extends AppCompatActivity implements categoryInt
             editNewProduct.put("price", editPrice_et.getText().toString());
             editNewProduct.put("mrp", editMrp_et.getText().toString());
             editNewProduct.put("discount", String.valueOf(discount));
-            editNewProduct.put("category", categoryName);
+            editNewProduct.put("category", category);
             editNewProduct.put("description", editDescription_et.getText().toString());
             editNewProduct.put("productId", productId);
             editNewProduct.put("imageUrl", imageUrl);
@@ -344,7 +342,7 @@ public class editProductDetails extends AppCompatActivity implements categoryInt
     public void categoryOnClickInterface(int position) {
 
         Toast.makeText(this, "Category = " + categoriesModelLists.get(position).getName().toString(), Toast.LENGTH_LONG).show();
-        this.categoryName = categoriesModelLists.get(position).getName().toString();
+        this.category = categoriesModelLists.get(position).getName().toString();
 
     }
 }

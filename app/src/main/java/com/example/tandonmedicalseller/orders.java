@@ -1,18 +1,19 @@
 package com.example.tandonmedicalseller;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -23,7 +24,7 @@ import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 
-public class orders extends AppCompatActivity  implements ordersProductInterface {
+public class orders extends AppCompatActivity implements ordersProductInterface {
 
     private RecyclerView ordersProductRecyclerView;
     private String currentUserUid;
@@ -73,6 +74,7 @@ public class orders extends AppCompatActivity  implements ordersProductInterface
 
 
     }
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -176,5 +178,23 @@ public class orders extends AppCompatActivity  implements ordersProductInterface
         intent.putExtra("productId", productModelLists.get(position).getProductId());
         intent.putExtra("productOrderId", productModelLists.get(position).getProductOrderId());
         startActivity(intent);
+    }
+
+    @Override
+    public void cancelProductFromOrders(int position) {
+        mDb.collection("seller").document(currentUserUid).collection("orders")
+                .document(productModelLists.get(position).getProductOrderId().toString()).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+                //Toast.makeText(orders.this, "Product Canceled", Toast.LENGTH_SHORT).show();
+            }
+        });
+        mDb.collection("users").document(productModelLists.get(position).getUserId().toString()).collection("orders")
+                .document(productModelLists.get(position).getProductOrderId().toString()).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+                Toast.makeText(orders.this, "Product Canceled", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

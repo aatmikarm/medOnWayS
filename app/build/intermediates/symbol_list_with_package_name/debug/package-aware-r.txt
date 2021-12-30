@@ -1062,6 +1062,7 @@ color common_google_signin_btn_text_light_disabled
 color common_google_signin_btn_text_light_focused
 color common_google_signin_btn_text_light_pressed
 color common_google_signin_btn_tint
+color dark
 color design_bottom_navigation_shadow_color
 color design_box_stroke_color
 color design_dark_default_color_background
@@ -1110,6 +1111,7 @@ color foreground_material_dark
 color foreground_material_light
 color highlighted_text_material_dark
 color highlighted_text_material_light
+color light
 color material_blue_grey_800
 color material_blue_grey_900
 color material_blue_grey_950
@@ -1205,9 +1207,6 @@ color primary_text_default_material_dark
 color primary_text_default_material_light
 color primary_text_disabled_material_dark
 color primary_text_disabled_material_light
-color purple_200
-color purple_500
-color purple_700
 color radiobutton_themeable_attribute_color
 color ripple_material_dark
 color ripple_material_light
@@ -1221,8 +1220,6 @@ color switch_thumb_material_dark
 color switch_thumb_material_light
 color switch_thumb_normal_material_dark
 color switch_thumb_normal_material_light
-color teal_200
-color teal_700
 color test_mtrl_calendar_day
 color test_mtrl_calendar_day_selected
 color tooltip_background_dark
@@ -1962,6 +1959,7 @@ id con3
 id con4
 id con5
 id confirm_button
+id constraintLayout
 id container
 id content
 id contentPanel
@@ -2158,6 +2156,8 @@ id off
 id on
 id options_container
 id orderProduct_quantity_cv
+id order_cancel_cv
+id order_cancel_tv
 id order_count_tv
 id order_date_time_cv
 id order_date_time_tv
@@ -3186,7 +3186,7 @@ style Theme_MaterialComponents_Light_NoActionBar
 style Theme_MaterialComponents_Light_NoActionBar_Bridge
 style Theme_MaterialComponents_NoActionBar
 style Theme_MaterialComponents_NoActionBar_Bridge
-style Theme_TandonMedicalSeller
+style Theme_medOnWaySeller
 style ThemeOverlay_AppCompat
 style ThemeOverlay_AppCompat_ActionBar
 style ThemeOverlay_AppCompat_Dark

@@ -62,7 +62,7 @@
 32-->[com.google.android.gms:play-services-measurement:19.0.0] C:\Users\Aatmik\.gradle\caches\transforms-3\5272b544e697d5f3584c36774e49a8aa\transformed\play-services-measurement-19.0.0\AndroidManifest.xml:26:22-107
 33
 34    <application
-34-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:14:5-55:19
+34-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:14:5-54:19
 35        android:allowBackup="true"
 35-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:15:9-35
 36        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -77,60 +77,60 @@
 41        android:supportsRtl="true"
 41-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:19:9-35
 42        android:testOnly="true"
-43        android:theme="@style/Theme.TandonMedicalSeller" >
-43-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:20:9-57
+43        android:theme="@style/Theme.medOnWaySeller" >
+43-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:20:9-52
 44        <meta-data
-44-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:22:9-24:71
+44-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:21:9-23:71
 45            android:name="com.google.android.geo.API_KEY"
-45-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:23:13-58
+45-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:22:13-58
 46            android:value="AIzaSyAZRiGplfBvqc477emClGrI3Z16EV-A0ig" />
-46-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:24:13-68
+46-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:23:13-68
 47
 48        <activity android:name="com.example.tandonmedicalseller.upload" />
-48-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:26:9-44
-48-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:26:19-41
+48-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:25:9-44
+48-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:25:19-41
 49        <activity android:name="com.example.tandonmedicalseller.profile" />
-49-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:27:9-45
-49-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:27:19-42
+49-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:26:9-45
+49-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:26:19-42
 50        <activity android:name="com.example.tandonmedicalseller.orders" />
-50-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:28:9-44
-50-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:28:19-41
+50-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:27:9-44
+50-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:27:19-41
 51        <activity android:name="com.example.tandonmedicalseller.signUp" />
-51-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:29:9-44
-51-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:29:19-41
+51-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:28:9-44
+51-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:28:19-41
 52        <activity android:name="com.example.tandonmedicalseller.editProductDetails" />
-52-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:30:9-56
-52-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:30:19-53
+52-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:29:9-56
+52-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:29:19-53
 53        <activity
-53-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:31:9-33:39
+53-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:30:9-32:39
 54            android:name="com.example.tandonmedicalseller.search"
-54-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:32:13-35
+54-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:31:13-35
 55            android:exported="true" />
-55-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:33:13-36
+55-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:32:13-36
 56        <activity android:name="com.example.tandonmedicalseller.MainActivity" />
-56-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:34:9-50
-56-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:34:19-47
+56-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:33:9-50
+56-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:33:19-47
 57        <activity android:name="com.example.tandonmedicalseller.productStatus" />
-57-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:35:9-51
-57-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:35:19-48
+57-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:34:9-51
+57-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:34:19-48
 58        <activity android:name="com.example.tandonmedicalseller.ResetPasswordActivity" />
-58-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:36:9-59
-58-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:36:19-56
+58-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:35:9-59
+58-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:35:19-56
 59        <activity
-59-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:38:9-44:20
+59-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:36:9-43:20
 60            android:name="com.example.tandonmedicalseller.signIn"
-60-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:38:19-41
+60-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:37:13-35
 61            android:exported="true" >
-61-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:39:13-36
+61-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:38:13-36
 62            <intent-filter>
-62-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:40:13-43:29
+62-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:39:13-42:29
 63                <action android:name="android.intent.action.MAIN" />
-63-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:41:17-69
-63-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:41:25-66
+63-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:40:17-69
+63-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:40:25-66
 64
 65                <category android:name="android.intent.category.LAUNCHER" />
-65-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:42:17-77
-65-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:42:27-74
+65-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:41:17-77
+65-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:41:27-74
 66            </intent-filter>
 67        </activity>
 68
@@ -139,9 +139,9 @@
 70            android:name="com.example.tandonmedicalseller.FirebaseMessagingService"
 70-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:46:13-53
 71            android:exported="true"
-71-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:49:13-36
+71-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:47:13-36
 72            android:permission="TODO" >
-72-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:47:13-38
+72-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:48:13-38
 73            <intent-filter>
 73-->C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:50:13-52:29
 74                <action android:name="com.google.firebase.MESSAGING_EVENT" />

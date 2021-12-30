@@ -45,11 +45,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            app:cardBackgroundColor="#8BC34A"
             app:cardCornerRadius="10dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintStart_toEndOf="@+id/orders_product_image"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
             <TextView
                 android:id="@+id/order_date_time_tv"
@@ -69,14 +68,13 @@
             android:id="@+id/orders_product_image"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/order_date_time_cv" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@+id/order_status_cv"
             app:layout_constraintEnd_toEndOf="@+id/orders_product_discounted_price"
             app:layout_constraintStart_toStartOf="@+id/orders_product_discounted_price"
             app:layout_constraintTop_toBottomOf="@+id/orders_product_discounted_price">
@@ -86,7 +84,6 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_margin="10dp"
-                android:backgroundTint="@color/black"
                 app:cardCornerRadius="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -128,7 +125,7 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/orders_product_image"
-            app:layout_constraintTop_toBottomOf="@+id/order_date_time_cv" />
+            app:layout_constraintTop_toTopOf="@+id/orders_product_image" />
 
 
         <TextView
@@ -170,7 +167,9 @@
             app:cardCornerRadius="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/orders_product_image">
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/order_cancel_cv"
+            app:layout_constraintTop_toBottomOf="@+id/order_date_time_cv">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -184,7 +183,6 @@
                     android:foregroundGravity="center"
                     android:gravity="center"
                     android:text="STATUS"
-                    android:textColor="#FFFFFF"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -193,11 +191,40 @@
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-
-
         </androidx.cardview.widget.CardView>
 
+        <androidx.cardview.widget.CardView
+            android:id="@+id/order_cancel_cv"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_margin="5dp"
+            android:backgroundTint="@color/light"
+            app:cardCornerRadius="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/order_status_cv"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/order_date_time_cv">
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/order_cancel_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:foregroundGravity="center"
+                    android:gravity="center"
+                    android:text="Cancel"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
