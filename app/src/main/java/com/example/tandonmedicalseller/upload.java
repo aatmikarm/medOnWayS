@@ -9,6 +9,8 @@ import android.os.Handler;
 import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -50,6 +52,8 @@ public class upload extends AppCompatActivity implements categoryInterface {
     ArrayList<categoriesModelList> categoriesModelLists;
     private CardView uploadBtn;
     private ImageView backBtn, uploadImage_iv;
+    private CheckBox uploadPrescriptionRequired_cb;
+    private boolean prescription;
     private EditText uploadName_et, uploadPrice_et, uploadMrp_et, uploadDiscount_et, uploadDescription_et;
     private Uri filePath;
 
@@ -57,7 +61,7 @@ public class upload extends AppCompatActivity implements categoryInterface {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upload);
-        
+
         firebaseAuth = FirebaseAuth.getInstance();
         mDb = FirebaseFirestore.getInstance();
         storageReference = FirebaseStorage.getInstance().getReference();
@@ -69,6 +73,7 @@ public class upload extends AppCompatActivity implements categoryInterface {
         uploadPrice_et = findViewById(R.id.uploadPrice_et);
         uploadMrp_et = findViewById(R.id.upload_mrp_et);
         uploadDescription_et = findViewById(R.id.uploadDescription_et);
+        uploadPrescriptionRequired_cb = findViewById(R.id.uploadPrescriptionRequired_cb);
         categoriesModelLists = getAllCategories();
         getSellerDetails();
         final Handler handler = new Handler();
@@ -99,6 +104,19 @@ public class upload extends AppCompatActivity implements categoryInterface {
             public void onClick(View v) {
                 uploadNewProduct();
             }
+        });
+
+        prescription = false;
+        uploadPrescriptionRequired_cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (buttonView.isChecked()) {
+                    prescription = true;
+                } else {
+                    prescription = false;
+                }
+            }
+
         });
     }
 
@@ -218,6 +236,7 @@ public class upload extends AppCompatActivity implements categoryInterface {
                             uploadNewProduct.put("sellerToken", sellerToken);
                             uploadNewProduct.put("description", uploadDescription_et.getText().toString());
                             uploadNewProduct.put("productId", productId);
+                            uploadNewProduct.put("prescription", prescription);
                             uploadNewProduct.put("imageUrl", uri.toString());
                             mDb.collection("products").document(productId).set(uploadNewProduct);
                             mDb.collection("seller").document(sellerId).collection("products").document(productId).set(uploadNewProduct);

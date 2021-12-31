@@ -10,6 +10,15 @@ public class productModelList {
     String productOrderId;
     String productQuantity;
     String productOrderPlacedTime;
+    Boolean prescription;
+
+    public Boolean getPrescription() {
+        return prescription;
+    }
+
+    public void setPrescription(Boolean prescription) {
+        this.prescription = prescription;
+    }
 
     public String getProductOrderPlacedTime() {
         return productOrderPlacedTime;

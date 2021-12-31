@@ -1,11 +1,5 @@
 package com.example.tandonmedicalseller;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -13,11 +7,18 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.MediaStore;
-import android.text.TextUtils;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -33,10 +34,8 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -47,12 +46,13 @@ public class editProductDetails extends AppCompatActivity implements categoryInt
     private FirebaseFirestore mDb;
     private FirebaseAuth firebaseAuth;
     private StorageReference storageReference;
+    private CheckBox editPrescriptionRequired_cb;
 
     private static final int PICK_IMAGE_REQUEST = 77;
 
     String dateandtimepattern = "ssmmHHddMMyyyy";
     String tempProductUrl;
-
+    private boolean prescription;
     // intent getters
     String category;
     String productId;
@@ -80,8 +80,6 @@ public class editProductDetails extends AppCompatActivity implements categoryInt
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_product_details);
 
-        
-
 
         firebaseAuth = FirebaseAuth.getInstance();
         mDb = FirebaseFirestore.getInstance();
@@ -96,6 +94,7 @@ public class editProductDetails extends AppCompatActivity implements categoryInt
         editPrice_et = findViewById(R.id.editPrice_et);
         editMrp_et = findViewById(R.id.edit_mrp_et);
         editDescription_et = findViewById(R.id.editDescription_et);
+        editPrescriptionRequired_cb = findViewById(R.id.editPrescriptionRequired_cb);
 
         if (getIntent().getExtras() != null) {
             this.category = (String) getIntent().getExtras().get("category");
@@ -103,6 +102,7 @@ public class editProductDetails extends AppCompatActivity implements categoryInt
             this.productId = (String) getIntent().getExtras().get("productId");
             this.seller = (String) getIntent().getExtras().get("seller");
             this.description = (String) getIntent().getExtras().get("description");
+            this.prescription = (Boolean) getIntent().getExtras().get("prescription");
             this.discount = (String) getIntent().getExtras().get("discount");
             this.imageUrl = (String) getIntent().getExtras().get("imageUrl");
             this.mrp = (String) getIntent().getExtras().get("mrp");
@@ -114,7 +114,20 @@ public class editProductDetails extends AppCompatActivity implements categoryInt
 
         //show all Product details
         Glide.with(this).load(imageUrl).into(editImage_iv);
+        if(prescription==true){
+            //editPrescriptionRequired_cb.isChecked();
+        }
+        editPrescriptionRequired_cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (buttonView.isChecked()) {
+                    prescription = true;
+                } else {
+                    prescription = false;
+                }
+            }
 
+        });
         categoriesModelLists = getAllCategories();
 
         final Handler handler = new Handler();
@@ -225,7 +238,7 @@ public class editProductDetails extends AppCompatActivity implements categoryInt
         progressDialog.setTitle("Uploading...");
         progressDialog.show();
 
-        if (filePath != null){
+        if (filePath != null) {
 
             Toast.makeText(this, "fill exist", Toast.LENGTH_LONG).show();
             Uri file = filePath;
@@ -265,6 +278,7 @@ public class editProductDetails extends AppCompatActivity implements categoryInt
                             editNewProduct.put("description", editDescription_et.getText().toString());
                             editNewProduct.put("productId", productId);
                             editNewProduct.put("imageUrl", uri.toString());
+                            editNewProduct.put("prescription", prescription);
                             editNewProduct.put("seller", seller);
 
                             mDb.collection("products").document(productId).update(editNewProduct);
@@ -281,7 +295,7 @@ public class editProductDetails extends AppCompatActivity implements categoryInt
 
         }
 
-        if (filePath == null){
+        if (filePath == null) {
 
             int price = Integer.parseInt(editPrice_et.getText().toString());
             int mrp = Integer.parseInt(editMrp_et.getText().toString());
@@ -296,6 +310,7 @@ public class editProductDetails extends AppCompatActivity implements categoryInt
             editNewProduct.put("description", editDescription_et.getText().toString());
             editNewProduct.put("productId", productId);
             editNewProduct.put("imageUrl", imageUrl);
+            editNewProduct.put("prescription", prescription);
 
             mDb.collection("products").document(productId).update(editNewProduct);
             progressDialog.dismiss();

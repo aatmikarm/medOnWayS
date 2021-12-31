@@ -215,6 +215,7 @@ public class MainActivity extends AppCompatActivity {
                         productModelList.setDiscount((String) document.get("discount"));
                         productModelList.setMrp((String) document.get("mrp"));
                         productModelList.setCategory((String) document.get("category"));
+                        productModelList.setPrescription((Boolean) document.get("prescription"));
                         productModelList.setProductId((String) document.get("productId"));
                         productModelList.setDescription((String) document.get("description"));
                         productModelLists.add(productModelList);
