@@ -2010,6 +2010,7 @@ id editDescription_et
 id editImageTv
 id editImage_iv
 id editName_et
+id editPrescriptionRequired_cb
 id editPrice_et
 id edit_back_btn
 id edit_final_btn
@@ -2397,6 +2398,7 @@ id uploadDescription_et
 id uploadImageTv
 id uploadImage_iv
 id uploadName_et
+id uploadPrescriptionRequired_cb
 id uploadPrice_et
 id upload_back_btn
 id upload_btn
