@@ -68,7 +68,7 @@ public class productStatus extends AppCompatActivity implements OnMapReadyCallba
 
     private TextView productStatus_deliveryPersonName_tv, productStaus_arrivalTime;
     private EditText enterOTP_et;
-    private ImageView productStatus_deliveryPerson_iv, productStatus_back_iv;
+    private ImageView productStatus_deliveryPerson_iv, productStatus_back_iv, productStatus_prescription_iv;
     private CardView productStatus_deliveryPersonCall, delivered_cv;
     private String sellerId, userId, userName, userPhone, productId, productOrderId, distanceBetweenUserAndSeller, productOTP;
     String defaultImageUrl = "https://firebasestorage.googleapis.com/v0/b/tandon-medical-8ee54.appspot.com/o/tandon%20medical.png?alt=media&token=72ebb684-c837-4a66-b282-6bfa03a7c69a";
@@ -86,7 +86,7 @@ public class productStatus extends AppCompatActivity implements OnMapReadyCallba
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_status);
-        
+
 
         firebaseAuth = FirebaseAuth.getInstance();
         mDb = FirebaseFirestore.getInstance();
@@ -104,6 +104,7 @@ public class productStatus extends AppCompatActivity implements OnMapReadyCallba
         productStatus_deliveryPerson_iv = findViewById(R.id.productStatus_deliveryPerson_iv);
         productStatus_back_iv = findViewById(R.id.productStatus_back_iv);
         productStatus_deliveryPersonCall = findViewById(R.id.productStatus_deliveryPersonCall);
+        productStatus_prescription_iv = findViewById(R.id.productStatus_prescription_iv);
         delivered_cv = findViewById(R.id.delivered_cv);
         enterOTP_et = findViewById(R.id.enterOTP_et);
 
@@ -163,6 +164,7 @@ public class productStatus extends AppCompatActivity implements OnMapReadyCallba
                 handler1.postDelayed(this, 10000);
             }
         }, 5000);
+
     }
 
     private void updateProductStatus() {
@@ -190,6 +192,13 @@ public class productStatus extends AppCompatActivity implements OnMapReadyCallba
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
                         productOTP = (String) document.get("otp").toString();
+                        String prescriptionUrlCheck = (String) document.get("prescriptionUrl").toString();
+                        if(prescriptionUrlCheck != null){
+                            Glide.with(getApplicationContext()).load((String) document.get("prescriptionUrl").toString()).into(productStatus_prescription_iv);
+                        }
+
+
+
                         Toast.makeText(productStatus.this, productOTP, Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(getApplicationContext(), "error", Toast.LENGTH_SHORT).show();

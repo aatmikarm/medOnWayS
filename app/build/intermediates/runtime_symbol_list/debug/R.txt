@@ -1957,6 +1957,7 @@ int id con2 0x7f08007d
 int id con3 0x7f08007e
 int id con4 0x7f08007f
 int id con5 0x7f080080
+int id con6 0x7f08024d
 int id confirm_button 0x7f080081
 int id constraintLayout 0x7f080248
 int id container 0x7f080082
@@ -2196,6 +2197,7 @@ int id productStatus_deliveryPersonCall 0x7f080168
 int id productStatus_deliveryPersonName_tv 0x7f080169
 int id productStatus_deliveryPersonPic_iv 0x7f08016a
 int id productStatus_deliveryPerson_iv 0x7f08016b
+int id productStatus_prescription_iv 0x7f08024e
 int id productStaus_Text 0x7f08016c
 int id productStaus_arrivalTime 0x7f08016d
 int id product_cart 0x7f08016e

@@ -1958,6 +1958,7 @@ id con2
 id con3
 id con4
 id con5
+id con6
 id confirm_button
 id constraintLayout
 id container
@@ -2197,6 +2198,7 @@ id productStatus_deliveryPersonCall
 id productStatus_deliveryPersonName_tv
 id productStatus_deliveryPersonPic_iv
 id productStatus_deliveryPerson_iv
+id productStatus_prescription_iv
 id productStaus_Text
 id productStaus_arrivalTime
 id product_cart
