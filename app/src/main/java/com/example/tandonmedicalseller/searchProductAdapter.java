@@ -15,12 +15,13 @@ import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
+
 public class searchProductAdapter extends RecyclerView.Adapter<searchProductAdapter.ItemViewHolder> {
     private Context context;
     private ArrayList<productModelList> productModelList;
     private searchProductInterface searchProductInterface;
 
-    public searchProductAdapter(Context context, ArrayList<productModelList> productModelList, search searchProductInterface) {
+    public searchProductAdapter(Context context, ArrayList<productModelList> productModelList, com.example.tandonmedicalseller.searchProductInterface searchProductInterface) {
 
         this.context = context;
         this.productModelList = productModelList;
@@ -30,14 +31,14 @@ public class searchProductAdapter extends RecyclerView.Adapter<searchProductAdap
 
 
     @Override
-    public ItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public searchProductAdapter.ItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.search_rv_product, parent, false);
-        return new ItemViewHolder(view);
+        return new searchProductAdapter.ItemViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(ItemViewHolder holder, int position) {
+    public void onBindViewHolder(searchProductAdapter.ItemViewHolder holder, int position) {
 
         Glide.with(context).load(productModelList.get(position).getImageUrl()).into(holder.productImage);
         holder.productName.setText(productModelList.get(position).name);
@@ -52,6 +53,7 @@ public class searchProductAdapter extends RecyclerView.Adapter<searchProductAdap
         return productModelList.size();
     }
 
+
     public class ItemViewHolder extends RecyclerView.ViewHolder {
 
         ImageView productImage;
@@ -61,26 +63,27 @@ public class searchProductAdapter extends RecyclerView.Adapter<searchProductAdap
         ItemViewHolder(View itemView) {
             super(itemView);
 
-            productName = itemView.findViewById(R.id.search_product_name);
-            productImage = itemView.findViewById(R.id.search_product_image);
+            productName = itemView.findViewById(R.id.search_name);
+            productImage = itemView.findViewById(R.id.search_rv_user_iv);
             productPrice = itemView.findViewById(R.id.search_product_discounted_price);
-            productMrp = itemView.findViewById(R.id.search_product_mrp);
+            productMrp = itemView.findViewById(R.id.search_mrp_tv);
             productContainer = itemView.findViewById(R.id.search_product_container);
             productDiscount = itemView.findViewById(R.id.search_discount_text_view);
 
             productContainer.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
                     searchProductInterface.searchProductOnClickInterface(getAdapterPosition());
-
-                    // remove product from the display list
-                    //if (getAdapterPosition() == RecyclerView.NO_POSITION) return;
-
                 }
             });
 
 
         }
     }
+
+    public void filterList(ArrayList<productModelList> filteredList) {
+        productModelList = filteredList;
+        notifyDataSetChanged();
+    }
+
 }

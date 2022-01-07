@@ -18,6 +18,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.medOnWaySeller">
+        <activity
+            android:name=".filter"
+            android:exported="true" />
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAZRiGplfBvqc477emClGrI3Z16EV-A0ig" />
@@ -38,6 +42,7 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -52,4 +57,5 @@
             </intent-filter>
         </service>
     </application>
+
 </manifest>

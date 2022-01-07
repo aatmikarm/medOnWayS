@@ -20,7 +20,7 @@
             android:id="@+id/search_discount_card_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:cardBackgroundColor="#8BC34A"
+            app:cardBackgroundColor="@color/light"
             app:cardCornerRadius="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -32,7 +32,6 @@
                 android:layout_margin="5dp"
                 android:gravity="center"
                 android:text="15% OFF"
-
                 android:textSize="10sp"
                 android:textStyle="bold" />
 
@@ -41,14 +40,14 @@
 
 
         <ImageView
-            android:id="@+id/search_product_image"
+            android:id="@+id/search_rv_user_iv"
             android:layout_width="120dp"
             android:layout_height="120dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/search_product_name"
+            android:id="@+id/search_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -56,13 +55,12 @@
             android:ems="12"
             android:maxLines="2"
             android:text="name"
-
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/search_product_image"
-            app:layout_constraintTop_toTopOf="@+id/search_product_image" />
+            app:layout_constraintStart_toEndOf="@+id/search_rv_user_iv"
+            app:layout_constraintTop_toTopOf="@+id/search_rv_user_iv" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/search_rating_cv"
@@ -70,22 +68,22 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             app:cardCornerRadius="10dp"
-            app:layout_constraintStart_toStartOf="@+id/search_product_name"
-            app:layout_constraintTop_toBottomOf="@+id/search_product_name">
+            app:layout_constraintStart_toStartOf="@+id/search_name"
+            app:layout_constraintTop_toBottomOf="@+id/search_name">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
                 <RatingBar
-                    android:id="@+id/search_rating_rb"
+                    android:id="@+id/search_star_rb"
                     style="?android:attr/ratingBarStyleSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:isIndicator="true"
                     android:numStars="5"
-                    android:progressTint="#8BC34A"
+                    android:progressTint="@color/light"
                     android:rating="4"
                     android:stepSize="0.5"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -93,22 +91,22 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/search_rating_tv"
+                    android:id="@+id/search_star_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:text="4.5"
-                    android:textColor="#8BC34A"
+                    android:textColor="@color/light"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@+id/search_rating_rb"
+                    app:layout_constraintBottom_toBottomOf="@+id/search_star_rb"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/search_rating_rb"
-                    app:layout_constraintTop_toTopOf="@+id/search_rating_rb" />
+                    app:layout_constraintStart_toEndOf="@+id/search_star_rb"
+                    app:layout_constraintTop_toTopOf="@+id/search_star_rb" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/search_user_name_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -119,19 +117,18 @@
 
 
         <TextView
-            android:id="@+id/search_product_mrp"
+            android:id="@+id/search_mrp_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:foregroundGravity="center"
             android:gravity="center"
             android:text="Rs. 280.00"
-            android:textColor="#AAAAAA"
             android:textSize="14sp"
             android:textStyle="normal"
-            app:layout_constraintBottom_toBottomOf="@+id/textView2"
-            app:layout_constraintStart_toEndOf="@+id/textView2"
-            app:layout_constraintTop_toTopOf="@+id/textView2" />
+            app:layout_constraintBottom_toBottomOf="@+id/search_user_name_tv"
+            app:layout_constraintStart_toEndOf="@+id/search_user_name_tv"
+            app:layout_constraintTop_toTopOf="@+id/search_user_name_tv" />
 
         <TextView
             android:id="@+id/textView3"
@@ -139,9 +136,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="Best Price"
-
-            app:layout_constraintStart_toStartOf="@+id/textView2"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+            app:layout_constraintStart_toStartOf="@+id/search_user_name_tv"
+            app:layout_constraintTop_toBottomOf="@+id/search_user_name_tv" />
 
         <TextView
             android:id="@+id/search_product_discounted_price"
@@ -182,7 +178,6 @@
                     android:foregroundGravity="center"
                     android:gravity="center"
                     android:text="ADD TO CART"
-
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
