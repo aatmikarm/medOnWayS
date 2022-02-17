@@ -46,6 +46,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".resetPassword"
+            android:exported="true" />
+        <activity
+            android:name=".mobileNumber"
+            android:exported="true" />
 
         <service
             android:name=".FirebaseMessagingService"

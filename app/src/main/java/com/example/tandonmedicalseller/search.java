@@ -20,7 +20,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -33,7 +32,7 @@ import java.util.ArrayList;
 public class search extends AppCompatActivity implements searchProductInterface {
 
     private EditText search_et;
-    private ImageView search_back_iv,search_filter_iv;
+    private ImageView search_back_iv, search_filter_iv;
     private FirebaseFirestore mDb;
     private FirebaseAuth firebaseAuth;
     private StorageReference mStorageRef;
@@ -118,7 +117,7 @@ public class search extends AppCompatActivity implements searchProductInterface 
         search_filter_iv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent (search.this,filter.class);
+                Intent intent = new Intent(search.this, filter.class);
                 startActivityForResult(intent, 101);
             }
         });
@@ -130,8 +129,8 @@ public class search extends AppCompatActivity implements searchProductInterface 
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(resultCode ==101){
-            search_et .setText(data.getStringExtra("data"));
+        if (resultCode == 101) {
+            search_et.setText(data.getStringExtra("data"));
         }
     }
 

@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.paytm.easypay:easypay:8.7.3-appinvoke@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/5f9eb90ef0fa7f33f3ef2b5729fb1f6a/transformed/easypay-8.7.3-appinvoke/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/5f9eb90ef0fa7f33f3ef2b5729fb1f6a/transformed/easypay-8.7.3-appinvoke/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/5f9eb90ef0fa7f33f3ef2b5729fb1f6a/transformed/easypay-8.7.3-appinvoke/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,7 +1,5 @@
 package com.example.tandonmedicalseller;
 
-import static android.content.ContentValues.TAG;
-
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -22,7 +20,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -196,12 +193,13 @@ public class productStatus extends AppCompatActivity implements OnMapReadyCallba
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
                         productOTP = (String) document.get("otp").toString();
-                        String prescriptionUrlCheck = (String) document.get("prescriptionUrl").toString();
-                        if(prescriptionUrlCheck != null){
-                            Glide.with(getApplicationContext()).load((String) document.get("prescriptionUrl").toString()).into(productStatus_prescription_iv);
+
+                        if ((String) document.get("prescriptionId") != null) {
+                            String prescriptionUrlCheck = (String) document.get("prescriptionUrl").toString();
+                            if (prescriptionUrlCheck != null) {
+                                Glide.with(getApplicationContext()).load((String) document.get("prescriptionUrl").toString()).into(productStatus_prescription_iv);
+                            }
                         }
-
-
 
                         Toast.makeText(productStatus.this, productOTP, Toast.LENGTH_SHORT).show();
                     } else {
