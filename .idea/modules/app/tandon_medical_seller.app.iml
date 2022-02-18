@@ -89,7 +89,6 @@
     <orderEntry type="library" name="Gradle: javax.inject:javax.inject:1" level="project" />
     <orderEntry type="library" name="Gradle: com.github.bumptech.glide:disklrucache:4.11.0" level="project" />
     <orderEntry type="library" name="Gradle: com.github.bumptech.glide:annotations:4.11.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:support-annotations:28.0.0" level="project" />
     <orderEntry type="library" name="Gradle: androidx.databinding:databinding-common:3.5.2" level="project" />
     <orderEntry type="library" name="Gradle: androidx.databinding:viewbinding:7.1.0-alpha06@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.multidex:multidex:2.0.0@aar" level="project" />
@@ -185,6 +184,5 @@
     <orderEntry type="library" name="Gradle: io.grpc:grpc-android:1.41.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.volley:volley:1.2.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: de.hdodenhof:circleimageview:3.1.0@aar" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:cardview-v7:28.0.0@aar" level="project" />
   </component>
 </module>

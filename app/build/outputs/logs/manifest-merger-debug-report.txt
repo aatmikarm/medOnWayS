@@ -102,7 +102,6 @@ MERGED from [androidx.print:print:1.0.0] C:\Users\Aatmik\.gradle\caches\transfor
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\Aatmik\.gradle\caches\transforms-3\ba7ff83458c0828c3fa8d78fdd113004\transformed\annotation-experimental-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] C:\Users\Aatmik\.gradle\caches\transforms-3\8524c4df0471eee4efecddd24b9a1742\transformed\protolite-well-known-types-18.0.0\AndroidManifest.xml:2:1-11:12
 MERGED from [io.grpc:grpc-android:1.41.0] C:\Users\Aatmik\.gradle\caches\transforms-3\95cb4dc82acdc99ad091dd89f4de6ddd\transformed\grpc-android-1.41.0\AndroidManifest.xml:2:1-13:12
-MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\Aatmik\.gradle\caches\transforms-3\96147842635061e79d421fee8a207162\transformed\cardview-v7-28.0.0\AndroidManifest.xml:17:1-22:12
 INJECTED from C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:2:1-67:12
 INJECTED from C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:2:1-67:12
 INJECTED from C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml:2:1-67:12
@@ -580,8 +579,6 @@ MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] C:\Users\Aat
 MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] C:\Users\Aatmik\.gradle\caches\transforms-3\8524c4df0471eee4efecddd24b9a1742\transformed\protolite-well-known-types-18.0.0\AndroidManifest.xml:7:5-9:41
 MERGED from [io.grpc:grpc-android:1.41.0] C:\Users\Aatmik\.gradle\caches\transforms-3\95cb4dc82acdc99ad091dd89f4de6ddd\transformed\grpc-android-1.41.0\AndroidManifest.xml:7:5-9:41
 MERGED from [io.grpc:grpc-android:1.41.0] C:\Users\Aatmik\.gradle\caches\transforms-3\95cb4dc82acdc99ad091dd89f4de6ddd\transformed\grpc-android-1.41.0\AndroidManifest.xml:7:5-9:41
-MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\Aatmik\.gradle\caches\transforms-3\96147842635061e79d421fee8a207162\transformed\cardview-v7-28.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\Aatmik\.gradle\caches\transforms-3\96147842635061e79d421fee8a207162\transformed\cardview-v7-28.0.0\AndroidManifest.xml:20:5-44
 INJECTED from C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml
 INJECTED from C:\Users\Aatmik\AndroidStudioProjects\tandonmedicalseller\app\src\main\AndroidManifest.xml
 	android:targetSdkVersion
